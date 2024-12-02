@@ -38,31 +38,31 @@
 <h2>🛠️ Technology Stack</h2>
 
 <div style="font-size: 24px; line-height: 1.5; text-align: center; font-weight: bold;">
-
+<ul>
   <span style="color: #FFFF00;">
-    <i class="fa-brands fa-python"></i>  Python
+   <li> <i class="fa-brands fa-python"></i>  Python
   </span>
   </br>
 
   <span style="color: #008000;">
-    <i class="fa-solid fa-gears"></i> QT Framework
+    <li> <i class="fa-solid fa-gears"></i> QT Framework
   </span>
   </br>
 
   <span style="color: #f48424;">
-    <i class="fa-solid fa-database"></i> SQLite3
+   <li> <i class="fa-solid fa-database"></i> SQLite3
   </span>
   </br>
 
   <span style="color: #264de4;">
-    <i class="fa-brands fa-css3-alt"></i> CSS
+   <li> <i class="fa-brands fa-css3-alt"></i> CSS
   </span>
   </br>
 
   <span style="color: #ff6347;">
-    <i class="fa-solid fa-pepper-hot"></i> Flask API
+  <li>  <i class="fa-solid fa-pepper-hot"></i> Flask API
   </span>
-
+</ul>
 </div>
 </br>
 
