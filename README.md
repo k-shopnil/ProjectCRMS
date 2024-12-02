@@ -16,19 +16,21 @@
 <p style="margin-left:40px">Here're some of the features of our project:</p> 
 
 <div style="font-size: 16px; line-height: 1.3; margin-top: 10px; margin-left:50px">
-  <i class="fa-solid fa-arrow-right"></i> User Profiles with secure authentication powered by Salted Hashing Technique </br>
+  <ul>
+  <li><i class="fa-solid fa-arrow-right"></i> User Profiles with secure authentication powered by Salted Hashing Technique </br>
   </br>
-  <i class="fa-solid fa-arrow-right"></i> Search and Filtering Abilities </br>
+  <li><i class="fa-solid fa-arrow-right"></i> Search and Filtering Abilities </br>
   </br>
-  <i class="fa-solid fa-arrow-right"></i> Notification Panel </br>
+  <li><i class="fa-solid fa-arrow-right"></i> Notification Panel </br>
   </br>
-  <i class="fa-solid fa-arrow-right"></i> Dark Mode </br>
+  <li><i class="fa-solid fa-arrow-right"></i> Dark Mode </br>
   </br>
-  <i class="fa-solid fa-arrow-right"></i> Easy Installation through Setup Wizard (Windows 10 and Above) </br>
+  <li><i class="fa-solid fa-arrow-right"></i> Easy Installation through Setup Wizard (Windows 10 and Above) </br>
   </br>
-  <i class="fa-solid fa-arrow-right"></i> Approval Workflow </br>
+  <li><i class="fa-solid fa-arrow-right"></i> Approval Workflow </br>
   </br>
-  <i class="fa-solid fa-arrow-right"></i> Open Source and Enterprise Ready </br>
+  <li><i class="fa-solid fa-arrow-right"></i> Open Source and Enterprise Ready </br>
+  </ul>
 </div>
 </br>
 
@@ -64,7 +66,6 @@
   </span>
 </ul>
 </div>
-</br>
 
 ------------------------------------------ 
 
