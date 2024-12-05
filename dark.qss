@@ -1,0 +1,184 @@
+/* General Background and Text Colors */
+QWidget {
+    background-color: #1E1E1E;
+    color: #E0E0E0;
+}
+
+/* QPushButton Styling */
+QPushButton {
+    background-color: #333333;
+    color: #E0E0E0;
+    border: 1px solid #444444;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+QPushButton:hover {
+    background-color: #555555;
+}
+
+QPushButton:pressed {
+    background-color: #777777;
+}
+
+/* QCheckBox Styling */
+/*QCheckBox {
+    color: #E0E0E0;
+}
+
+QCheckBox::indicator {
+    width: 15px;
+    height: 15px;
+}
+
+QCheckBox::indicator:unchecked {
+    border: 1px solid #444444;
+    background-color: #1E1E1E;
+}
+
+QCheckBox::indicator:checked {
+    border: 1px solid #444444;
+    background-color: #4CAF50;
+}*/
+
+/* QLabel Styling */
+QLabel {
+    color: #E0E0E0;
+}
+
+/* QLineEdit Styling */
+QLineEdit {
+    background-color: #2E2E2E;
+    border: 1px solid #444444;
+    padding: 5px;
+    border-radius: 3px;
+    color: #E0E0E0;
+}
+
+QLineEdit:focus {
+    border: 1px solid #0084ff;
+}
+
+/* QMenuBar Styling */
+QMenuBar {
+    background-color: #2E2E2E;
+    color: #E0E0E0;
+}
+
+QMenuBar::item {
+    background-color: transparent;
+    padding: 5px 10px;
+}
+
+QMenuBar::item:selected {
+    background-color: #333333;
+}
+
+/* QradioButton Styling */
+
+
+
+/* QStatusBar Styling */
+QStatusBar {
+    background-color: #2E2E2E;
+    color: #E0E0E0;
+}
+
+/* QScrollBar Styling */
+QScrollBar:vertical {
+    background-color: #333333;
+    width: 12px;
+    margin: 18px 0 18px 0;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #444444;
+    min-height: 20px;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    background-color: #333333;
+    height: 14px;
+}
+
+QScrollBar::add-line:vertical:hover, QScrollBar::sub-line:vertical:hover {
+    background-color: #555555;
+}
+
+/* QComboBox Styling */
+QComboBox {
+    background-color: #2E2E2E;
+    border: 1px solid #444444;
+    padding: 3px;
+    border-radius: 3px;
+    color: #E0E0E0;
+}
+
+/* QComboBox:drop-down {
+    border-left: 1px solid #084ff4;
+} */
+
+QComboBox:focus {
+    border: 1px solid #0084ff;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #444444;
+    border: 1px solid #444444;
+    selection-background-color: #0084ff;
+    color: #E0E0E0;
+}
+
+/* General TableWidget Styling */
+QTableWidget {
+    background-color: #2b2b2b;
+    color: #f0f0f0;
+    border: 1px solid #444;
+    gridline-color: #555;
+}
+
+/* Styling the header (horizontal and vertical) */
+QHeaderView::section {
+    background-color: #3b3b3b;
+    color: #f0f0f0;
+    padding: 4px;
+    border: 1px solid #444;
+    text-align: left;
+}
+
+/* Hover effect for headers */
+QHeaderView::section:hover {
+    background-color: #505050;
+}
+
+/* Styling for the selected header section */
+QHeaderView::section:pressed {
+    background-color: #606060;
+}
+
+/* Make the row/column headers more visually distinct */
+QTableCornerButton::section {
+    background-color: #3b3b3b;
+    border: 1px solid #444;
+}
+
+/* Highlighting selected rows */
+QTableWidget::item:selected {
+    font: 500 9pt "Gotham";
+    background-color: #505050;
+    color: #f0f0f0;
+}
+
+/* Vertical header styling */
+QHeaderView::section:vertical {
+    background-color: #3b3b3b;
+    color: #f0f0f0;
+    padding: 4px;
+    border: 1px solid #444;
+}
+
+
+QPushButton{
+    background-color: #ffffff;
+    color: #000000;
+}

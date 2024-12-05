@@ -37,12 +37,20 @@
     <height>395</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <family>Montserrat</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Campus Resource Management System (CRMS)</string>
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>Asset/icon.ico</normaloff>Asset/icon.ico</iconset>
+    <normaloff>../../.designer/backup/Asset/icon.ico</normaloff>../../.designer/backup/Asset/icon.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -137,10 +145,16 @@
     </item>
     <item alignment="Qt::AlignHCenter">
      <widget class="QLabel" name="header">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="maximumSize">
        <size>
-        <width>415</width>
-        <height>96</height>
+        <width>400</width>
+        <height>95</height>
        </size>
       </property>
       <property name="font">
@@ -152,14 +166,14 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>Asset/75h/title_logo.png</pixmap>
+       <pixmap>../../.designer/backup/Asset/75h/title_logo.png</pixmap>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QTabWidget" name="pages">
       <property name="currentIndex">
-       <number>8</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="login_Tab">
        <attribute name="title">
@@ -176,7 +190,7 @@
           </property>
           <property name="minimumSize">
            <size>
-            <width>596</width>
+            <width>759</width>
             <height>395</height>
            </size>
           </property>
@@ -205,7 +219,7 @@ border-radius: 30px 30px 0px 0px;</string>
           <widget class="QLineEdit" name="lineEdit">
            <property name="geometry">
             <rect>
-             <x>90</x>
+             <x>180</x>
              <y>70</y>
              <width>431</width>
              <height>51</height>
@@ -237,7 +251,7 @@ padding: 10px;</string>
           <widget class="QLineEdit" name="lineEdit_2">
            <property name="geometry">
             <rect>
-             <x>90</x>
+             <x>180</x>
              <y>140</y>
              <width>431</width>
              <height>51</height>
@@ -266,7 +280,7 @@ padding: 10px;</string>
           <widget class="QLabel" name="label_2">
            <property name="geometry">
             <rect>
-             <x>220</x>
+             <x>310</x>
              <y>10</y>
              <width>171</width>
              <height>41</height>
@@ -295,7 +309,7 @@ padding: 10px;</string>
           <widget class="QPushButton" name="pushButton">
            <property name="geometry">
             <rect>
-             <x>240</x>
+             <x>330</x>
              <y>290</y>
              <width>121</width>
              <height>41</height>
@@ -332,7 +346,7 @@ drop-shadow: 5px 5px blue;
           <widget class="QCheckBox" name="checkBox">
            <property name="geometry">
             <rect>
-             <x>405</x>
+             <x>495</x>
              <y>220</y>
              <width>111</width>
              <height>20</height>
@@ -353,9 +367,9 @@ drop-shadow: 5px 5px blue;
           <widget class="QLabel" name="label_3">
            <property name="geometry">
             <rect>
-             <x>140</x>
+             <x>200</x>
              <y>400</y>
-             <width>341</width>
+             <width>397</width>
              <height>51</height>
             </rect>
            </property>
@@ -377,13 +391,13 @@ drop-shadow: 5px 5px blue;
 color: rgba(175, 175, 175, 50);</string>
            </property>
            <property name="text">
-            <string>CRMS V1.3 | Developed By Group 5</string>
+            <string>CRMS V1.3 Beta | Developed By Group 5</string>
            </property>
           </widget>
           <widget class="QWidget" name="layoutWidget">
            <property name="geometry">
             <rect>
-             <x>90</x>
+             <x>180</x>
              <y>220</y>
              <width>261</width>
              <height>21</height>
@@ -2703,6 +2717,38 @@ border:none;</string>
                     <height>0</height>
                    </size>
                   </property>
+                  <property name="font">
+                   <font>
+                    <family>Montserrat</family>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="currentText">
+                   <string/>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Select Resource type</string>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>Classroom</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Conference Hall</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Playground</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Transportation</string>
+                   </property>
+                  </item>
                  </widget>
                 </item>
                </layout>
@@ -2739,6 +2785,15 @@ border:none;</string>
                     <width>200</width>
                     <height>0</height>
                    </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Montserrat</family>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Specify your requirement</string>
                   </property>
                  </widget>
                 </item>
@@ -2883,18 +2938,45 @@ drop-shadow: 5px 5px blue;
      <x>0</x>
      <y>0</y>
      <width>794</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>12</pointsize>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="focusPolicy">
     <enum>Qt::WheelFocus</enum>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar {
+	color: rgb(255, 0, 0);
+	color: rgb(255, 255, 255);
+	background-color: rgb(11, 79, 167);
+}
+QMenuBar:hover {
+	color:rgb(0,0,0);
+	background-color: rgb(0, 0, 0);
+}</string>
+   </property>
    <widget class="QMenu" name="menuApp">
+    <property name="styleSheet">
+     <string notr="true">QMenu {
+	color: rgb(0, 0, 0);
+}
+QMenu::item:selected {
+	color: rgb(0, 0, 0);
+	background-color: rgb(179, 179, 179);
+}</string>
+    </property>
     <property name="title">
      <string>App</string>
     </property>
+    <addaction name="actionRefresh"/>
     <addaction name="actionAbout"/>
-    <addaction name="separator"/>
     <addaction name="actionForce_Exit"/>
    </widget>
    <addaction name="menuApp"/>
@@ -2902,11 +2984,19 @@ drop-shadow: 5px 5px blue;
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAbout">
    <property name="icon">
-    <iconset theme="applications-system">
-     <normaloff>.</normaloff>.</iconset>
+    <iconset>
+     <normaloff>../../Downloads/about-filled-svgrepo-com.svg</normaloff>../../Downloads/about-filled-svgrepo-com.svg</iconset>
    </property>
    <property name="text">
     <string>About</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+    </font>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
    </property>
   </action>
   <action name="actionExit">
@@ -2915,8 +3005,40 @@ drop-shadow: 5px 5px blue;
    </property>
   </action>
   <action name="actionForce_Exit">
+   <property name="icon">
+    <iconset>
+     <normaloff>../../Downloads/switch-off-on-power-energy-battery-ecology-svgrepo-com.svg</normaloff>../../Downloads/switch-off-on-power-energy-battery-ecology-svgrepo-com.svg</iconset>
+   </property>
    <property name="text">
     <string>Force Exit</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+    </font>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Q</string>
+   </property>
+  </action>
+  <action name="actionRefresh">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../../Downloads/update-rotation-svgrepo-com.svg</normaloff>../../Downloads/update-rotation-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Refresh</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+    </font>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
  </widget>
