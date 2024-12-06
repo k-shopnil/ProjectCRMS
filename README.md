@@ -72,7 +72,7 @@
 </br>
 <h2>📷Project Screenshots:</h2>
 </br>
-<img src="https://miro.medium.com/v2/resize:fit:1200/1*IUaltpmXmv0tDZVo7-5pRA.png" alt="project-screenshot" width="1920" height="500/">
+<img src="https://i.ibb.co.com/NjZc218/Screenshot-2024-12-05-225811.png" alt="project-screenshot" width="1920" height="500/">
 
 </br><h2 style="text-align: left; margin-bottom: 20px;">💻 System Requirements</h2>
 
