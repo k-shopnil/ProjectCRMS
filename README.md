@@ -27,8 +27,10 @@
   </br>
   <li><i class="fa-solid fa-arrow-right"></i> Easy Installation through Setup Wizard (Windows 10 and Above) </br>
   </br>
-  <li><i class="fa-solid fa-arrow-right"></i> User-Friendly Interface </br>
-  <li><i class="fa-solid fa-arrow-right"></i> Real-time and Dynamic booking Form </br>
+  <li><i class="fa-solid fa-arrow-right"></i> User-Friendly Interface</br>
+  </br>
+  <li><i class="fa-solid fa-arrow-right"></i> Real-time and Dynamic booking Form</br>
+  </br>
   <li><i class="fa-solid fa-arrow-right"></i> Approval Workflow </br>
   </br>
   <li><i class="fa-solid fa-arrow-right"></i> Open Source and Enterprise-Ready </br>
