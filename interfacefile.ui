@@ -351,6 +351,9 @@ drop-shadow: 5px 5px blue;
            </property>
           </widget>
           <widget class="QCheckBox" name="checkBox">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="geometry">
             <rect>
              <x>495</x>
@@ -363,6 +366,9 @@ drop-shadow: 5px 5px blue;
             <font>
              <family>Montserrat</family>
             </font>
+           </property>
+           <property name="toolTip">
+            <string>This feature is coming soon</string>
            </property>
            <property name="styleSheet">
             <string notr="true">color: rgb(255, 255, 255);</string>
