@@ -1,6 +1,7 @@
 import os
 import sqlite3
 import sys
+import datetime
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QShortcut
 from PyQt5.QtCore import Qt
 from ui import Ui_MainWindow
@@ -189,6 +190,16 @@ def load_stylesheet(file_path):
     with open(file_path, 'r') as file:
         return file.read()
     
+def dayFromdate(date):
+    date="2024,12,19"
+    date = date.split(",")
+    year = int(date[0])
+    month = int(date[1])
+    day = int(date[2])
+    date_object = datetime.date(year, month, day)
+    day_name = date_object.strftime("%A")
+    return day_name
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setAttribute(Qt.AA_UseHighDpiPixmaps)
@@ -196,4 +207,5 @@ if __name__ == "__main__":
     stylesheetLight = load_stylesheet('light.qss')
     main_window = MainApp()
     main_window.show()
+    print(dayFromdate("2024,12,19"))
     sys.exit(app.exec_())
