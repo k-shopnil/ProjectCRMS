@@ -115,10 +115,13 @@
 ```
 pip install pyqt
 ```
+```
+pip install os
+```
+```
+pip install datetime
+```
 
-```
-pip install sqlite3
-```
 </div>
 </br>
 
