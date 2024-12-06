@@ -77,7 +77,7 @@
 <h2>📷Project Screenshots:</h2>
 </br>
 <div align="center">
-    <img src="https://i.ibb.co.com/NjZc218/Screenshot-2024-12-05-225811.png" alt="project-screenshot)" alt="Project SS">
+    <img src="https://i.ibb.co.com/B3mXpZD/image.png" alt="project-screenshot)" alt="Project SS">
 </div>
 
 
