@@ -27,9 +27,11 @@
   </br>
   <li><i class="fa-solid fa-arrow-right"></i> Easy Installation through Setup Wizard (Windows 10 and Above) </br>
   </br>
+  <li><i class="fa-solid fa-arrow-right"></i> User-Friendly Interface </br>
+  <li><i class="fa-solid fa-arrow-right"></i> Real-time and Dynamic booking Form </br>
   <li><i class="fa-solid fa-arrow-right"></i> Approval Workflow </br>
   </br>
-  <li><i class="fa-solid fa-arrow-right"></i> Open Source and Enterprise Ready </br>
+  <li><i class="fa-solid fa-arrow-right"></i> Open Source and Enterprise-Ready </br>
   </ul>
 </div>
 </br>
@@ -89,9 +91,9 @@
   <h3 style="color: #007ACC; font-size: 22px; margin-top: 25px; margin-bottom: 15px;">⚙️ Hardware Requirements</h3>
   <ul style="margin-left: 20px;">
     <li><strong>Processor:</strong> x64 Based - Intel Core i3 5th Gen / AMD Ryzen 3 2000 Series or higher (minimum for running the application smoothly)</li>
-    <li><strong>RAM:</strong> 4 GB or more (for development/usage)</li>
+    <li><strong>RAM:</strong> 512 MB memory or more (for usage)</li>
     <li><strong>Storage:</strong> 256 MB free space (for installation and storing data)</li>
-    <li><strong>Display:</strong> 1366x768 or higher resolution (for proper UI display)</li>
+    <li><strong>Display:</strong> 1280x720 or higher resolution (for proper UI display)</li>
   </ul>
 </div>
 

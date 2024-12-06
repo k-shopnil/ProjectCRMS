@@ -24,6 +24,10 @@ class MainApp(QMainWindow):
         self.ui.lineEdit_2.setPlaceholderText("Enter Password")
         self.ui.label_3.setText("CRMS V1.3 Beta | Developed By Group 5")
         self.add_combos()
+        
+        self.ui.radioButton.setChecked(True)
+        self.ui.radioButton_6.setChecked(True)
+        
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_time)
         self.timer.start(1000)  # Update every second
@@ -119,9 +123,11 @@ class MainApp(QMainWindow):
         elif result and role == "Student":
             self.ui.pages.setCurrentIndex(5)
             QMessageBox.information(self, "Success", "Login Successful!")
-            
+        elif result and role == "Teacher":
+            self.ui.pages.setCurrentIndex(5)
+            QMessageBox.information(self, "Success", "Login Successful!")
         else:
-            QMessageBox.warning(self, "Error", "Incorrect ID or password!")
+            QMessageBox.warning(self, "Error", "Incorrect credentials! Try again with correct details.")
     
 
     
