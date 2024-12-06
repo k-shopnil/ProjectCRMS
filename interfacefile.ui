@@ -25,16 +25,10 @@
     <height>579</height>
    </size>
   </property>
-  <property name="maximumSize">
-   <size>
-    <width>1920</width>
-    <height>1080</height>
-   </size>
-  </property>
   <property name="baseSize">
    <size>
-    <width>614</width>
-    <height>395</height>
+    <width>794</width>
+    <height>579</height>
    </size>
   </property>
   <property name="font">
@@ -48,9 +42,6 @@
   <property name="windowIcon">
    <iconset>
     <normaloff>../../.designer/backup/Asset/icon.ico</normaloff>../../.designer/backup/Asset/icon.ico</iconset>
-  </property>
-  <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -151,6 +142,12 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>400</width>
+        <height>95</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
         <width>400</width>
@@ -159,6 +156,7 @@
       </property>
       <property name="font">
        <font>
+        <family>Montserrat</family>
         <pointsize>1</pointsize>
        </font>
       </property>
@@ -166,14 +164,17 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../.designer/backup/Asset/75h/title_logo.png</pixmap>
+       <pixmap>Asset/title_logo2.png</pixmap>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignHCenter|Qt::AlignTop</set>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QTabWidget" name="pages">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="login_Tab">
        <attribute name="title">
@@ -310,10 +311,16 @@ padding: 10px;</string>
            <property name="geometry">
             <rect>
              <x>330</x>
-             <y>290</y>
+             <y>270</y>
              <width>121</width>
-             <height>41</height>
+             <height>45</height>
             </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>120</width>
+             <height>45</height>
+            </size>
            </property>
            <property name="font">
             <font>
@@ -510,7 +517,7 @@ border:none;
              </property>
              <property name="icon">
               <iconset>
-               <normaloff>../../Downloads/icons8-home.svg</normaloff>../../Downloads/icons8-home.svg</iconset>
+               <normaloff>Asset/icons8-home.svg</normaloff>Asset/icons8-home.svg</iconset>
              </property>
              <property name="iconSize">
               <size>
@@ -543,7 +550,7 @@ border:none;
              </property>
              <property name="icon">
               <iconset>
-               <normaloff>../../Downloads/clipboard-list-checklist-menu-check-svgrepo-com.svg</normaloff>../../Downloads/clipboard-list-checklist-menu-check-svgrepo-com.svg</iconset>
+               <normaloff>Asset/clipboard-list-checklist-menu-check-svgrepo-com.svg</normaloff>Asset/clipboard-list-checklist-menu-check-svgrepo-com.svg</iconset>
              </property>
              <property name="iconSize">
               <size>
@@ -576,7 +583,7 @@ border:none;
              </property>
              <property name="icon">
               <iconset>
-               <normaloff>../../Downloads/book-book-svgrepo-com (1).svg</normaloff>../../Downloads/book-book-svgrepo-com (1).svg</iconset>
+               <normaloff>Asset/book-book-svgrepo-com (1).svg</normaloff>Asset/book-book-svgrepo-com (1).svg</iconset>
              </property>
              <property name="iconSize">
               <size>
@@ -609,7 +616,7 @@ border:none;
              </property>
              <property name="icon">
               <iconset>
-               <normaloff>../../Downloads/announcement-svgrepo-com (2).svg</normaloff>../../Downloads/announcement-svgrepo-com (2).svg</iconset>
+               <normaloff>Asset/announcement-svgrepo-com (2) - Copy.svg</normaloff>Asset/announcement-svgrepo-com (2) - Copy.svg</iconset>
              </property>
              <property name="iconSize">
               <size>
@@ -631,8 +638,10 @@ border:none;
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">border: 2px solid rgb(4, 29, 45);;
-border-radius: 20px;</string>
+           <string notr="true">QFrame{
+border: 2px solid rgb(4, 29, 45);
+border-radius: 20px;
+}</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -653,9 +662,7 @@ border-radius: 20px;</string>
                 </font>
                </property>
                <property name="styleSheet">
-                <string notr="true">color:rgba(4, 29, 45,0.5);
-
-border:none;</string>
+                <string notr="true">border:none;</string>
                </property>
                <property name="text">
                 <string>Good Morning</string>
@@ -748,7 +755,7 @@ border:none;
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../../Downloads/logout-svgrepo-com.svg</normaloff>../../Downloads/logout-svgrepo-com.svg</iconset>
+            <normaloff>Asset/logout-svgrepo-com.svg</normaloff>Asset/logout-svgrepo-com.svg</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -846,7 +853,7 @@ border:none;
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>../../Downloads/back-svgrepo-com.svg</normaloff>../../Downloads/back-svgrepo-com.svg</iconset>
+                    <normaloff>Asset/back-svgrepo-com.svg</normaloff>Asset/back-svgrepo-com.svg</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -866,9 +873,7 @@ border:none;
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color:rgba(4, 29, 45);
-
-border:none;</string>
+                   <string notr="true"/>
                   </property>
                   <property name="text">
                    <string>Reservation Requests</string>
@@ -1042,7 +1047,7 @@ border:none;
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>../../Downloads/back-svgrepo-com.svg</normaloff>../../Downloads/back-svgrepo-com.svg</iconset>
+                    <normaloff>Asset/back-svgrepo-com.svg</normaloff>Asset/back-svgrepo-com.svg</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1062,9 +1067,7 @@ border:none;
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color:rgba(4, 29, 45);
-
-border:none;</string>
+                   <string notr="true"/>
                   </property>
                   <property name="text">
                    <string>Application Logs</string>
@@ -1245,7 +1248,7 @@ border:none;
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>../../Downloads/back-svgrepo-com.svg</normaloff>../../Downloads/back-svgrepo-com.svg</iconset>
+                    <normaloff>Asset/back-svgrepo-com.svg</normaloff>Asset/back-svgrepo-com.svg</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1265,9 +1268,7 @@ border:none;
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color:rgba(4, 29, 45);
-
-border:none;</string>
+                   <string notr="true"/>
                   </property>
                   <property name="text">
                    <string>Compose a Notice</string>
@@ -1519,7 +1520,7 @@ border:none;
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>../../Downloads/icons8-home.svg</normaloff>../../Downloads/icons8-home.svg</iconset>
+                  <normaloff>Asset/icons8-home.svg</normaloff>Asset/icons8-home.svg</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -1552,7 +1553,7 @@ border:none;
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>../../Downloads/user-profile-filled-svgrepo-com.svg</normaloff>../../Downloads/user-profile-filled-svgrepo-com.svg</iconset>
+                  <normaloff>Asset/user-profile-filled-svgrepo-com.svg</normaloff>Asset/user-profile-filled-svgrepo-com.svg</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -1585,7 +1586,7 @@ border:none;
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>../../Downloads/compose-svgrepo-com.svg</normaloff>../../Downloads/compose-svgrepo-com.svg</iconset>
+                  <normaloff>Asset/compose-svgrepo-com.svg</normaloff>Asset/compose-svgrepo-com.svg</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -1663,7 +1664,7 @@ border:none;
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>../../Downloads/notification-bell-new-svgrepo-com (1).svg</normaloff>../../Downloads/notification-bell-new-svgrepo-com (1).svg</iconset>
+                  <normaloff>Asset/notification-bell-new-svgrepo-com (1).svg</normaloff>Asset/notification-bell-new-svgrepo-com (1).svg</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -1713,7 +1714,7 @@ border:none;
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>../../Downloads/logout-svgrepo-com.svg</normaloff>../../Downloads/logout-svgrepo-com.svg</iconset>
+                  <normaloff>Asset/logout-svgrepo-com.svg</normaloff>Asset/logout-svgrepo-com.svg</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -1780,9 +1781,7 @@ border-radius: 20px;</string>
                       </font>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">color:rgba(4, 29, 45,0.5);
-
-border:none;</string>
+                      <string notr="true">border:none;</string>
                      </property>
                      <property name="text">
                       <string>Welcome [Username]</string>
@@ -1957,7 +1956,7 @@ border:none;
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>../../Downloads/back-svgrepo-com.svg</normaloff>../../Downloads/back-svgrepo-com.svg</iconset>
+                    <normaloff>Asset/back-svgrepo-com.svg</normaloff>Asset/back-svgrepo-com.svg</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1977,9 +1976,7 @@ border:none;
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color:rgba(4, 29, 45);
-
-border:none;</string>
+                   <string notr="true"/>
                   </property>
                   <property name="text">
                    <string>Notifications</string>
@@ -2019,7 +2016,7 @@ border:none;</string>
                <widget class="QTableWidget" name="tableWidget_6">
                 <column>
                  <property name="text">
-                  <string>Timestamp</string>
+                  <string>Reviewed On</string>
                  </property>
                 </column>
                 <column>
@@ -2155,7 +2152,7 @@ border:none;
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>../../Downloads/back-svgrepo-com.svg</normaloff>../../Downloads/back-svgrepo-com.svg</iconset>
+                    <normaloff>Asset/back-svgrepo-com.svg</normaloff>Asset/back-svgrepo-com.svg</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -2175,9 +2172,7 @@ border:none;
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color:rgba(4, 29, 45);
-
-border:none;</string>
+                   <string notr="true"/>
                   </property>
                   <property name="text">
                    <string>User Profile</string>
@@ -2219,7 +2214,7 @@ background-color: rgb(227, 227, 227);
                  <item alignment="Qt::AlignHCenter">
                   <widget class="QFrame" name="frame_22">
                    <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
@@ -2227,6 +2222,12 @@ background-color: rgb(227, 227, 227);
                    <property name="minimumSize">
                     <size>
                      <width>450</width>
+                     <height>85</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>2000</width>
                      <height>85</height>
                     </size>
                    </property>
@@ -2244,6 +2245,12 @@ background-color: rgb(227, 227, 227);
                       <width>223</width>
                       <height>33</height>
                      </rect>
+                    </property>
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
                     </property>
                     <property name="font">
                      <font>
@@ -2309,7 +2316,7 @@ border-radius: 25px;</string>
                    <property name="minimumSize">
                     <size>
                      <width>223</width>
-                     <height>156</height>
+                     <height>129</height>
                     </size>
                    </property>
                    <property name="sizeIncrement">
@@ -2582,9 +2589,9 @@ border:none;</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_35">
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_18">
+            <layout class="QHBoxLayout" name="horizontalLayout_18" stretch="0,0,100,0">
              <property name="spacing">
-              <number>0</number>
+              <number>9</number>
              </property>
              <property name="bottomMargin">
               <number>0</number>
@@ -2635,7 +2642,7 @@ border:none;
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>../../Downloads/back-svgrepo-com.svg</normaloff>../../Downloads/back-svgrepo-com.svg</iconset>
+                 <normaloff>Asset/back-svgrepo-com.svg</normaloff>Asset/back-svgrepo-com.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -2655,9 +2662,7 @@ border:none;
                 </font>
                </property>
                <property name="styleSheet">
-                <string notr="true">color:rgba(4, 29, 45);
-
-border:none;</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string>Apply for a Reservation</string>
@@ -2667,10 +2672,91 @@ border:none;</string>
                </property>
               </widget>
              </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_3">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>31</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>106</width>
+                 <height>100</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border-radius:10px;</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="placeholderText">
+                <string>Search</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="power_search">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>66</width>
+                 <height>71</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>This feature is coming soon</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+background-color: rgb(4, 29, 45);
+border-radius:20px;
+border:none;
+}
+QPushButton:hover{
+background-color: rgb(11, 79, 167);
+border-radius:20px;
+border:none;
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>Asset/search-svgrepo-com.svg</normaloff>Asset/search-svgrepo-com.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>50</width>
+                 <height>27</height>
+                </size>
+               </property>
+              </widget>
+             </item>
             </layout>
            </item>
            <item>
             <widget class="QFrame" name="frame_25">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -2713,14 +2799,14 @@ border:none;</string>
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>200</width>
+                    <width>125</width>
                     <height>0</height>
                    </size>
                   </property>
                   <property name="font">
                    <font>
                     <family>Montserrat</family>
-                    <pointsize>12</pointsize>
+                    <pointsize>8</pointsize>
                    </font>
                   </property>
                   <property name="currentText">
@@ -2782,14 +2868,14 @@ border:none;</string>
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>200</width>
+                    <width>125</width>
                     <height>0</height>
                    </size>
                   </property>
                   <property name="font">
                    <font>
                     <family>Montserrat</family>
-                    <pointsize>12</pointsize>
+                    <pointsize>8</pointsize>
                    </font>
                   </property>
                   <property name="placeholderText">
@@ -2800,7 +2886,118 @@ border:none;</string>
                </layout>
               </item>
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_33" stretch="0,9">
+               <layout class="QVBoxLayout" name="verticalLayout_38">
+                <item alignment="Qt::AlignTop">
+                 <widget class="QLabel" name="label_11">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>19</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Montserrat</family>
+                    <pointsize>12</pointsize>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Start Time</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QTimeEdit" name="timeEdit">
+                  <property name="minimumSize">
+                   <size>
+                    <width>85</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_39">
+                <item>
+                 <widget class="QLabel" name="label_12">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>19</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Montserrat</family>
+                    <pointsize>12</pointsize>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>End Time</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QTimeEdit" name="timeEdit_2">
+                  <property name="minimumSize">
+                   <size>
+                    <width>85</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_37">
+                <item>
+                 <widget class="QLabel" name="label_10">
+                  <property name="font">
+                   <font>
+                    <family>Montserrat</family>
+                    <pointsize>12</pointsize>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Time Slot</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_3">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>120</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Montserrat</family>
+                    <pointsize>8</pointsize>
+                   </font>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Specify your requirement</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_33" stretch="0,0">
                 <property name="spacing">
                  <number>6</number>
                 </property>
@@ -2814,26 +3011,29 @@ border:none;</string>
                    </font>
                   </property>
                   <property name="text">
-                   <string>Date  and Time</string>
+                   <string>Date</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QDateTimeEdit" name="dateTimeEdit">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
+                 <widget class="QDateEdit" name="dateEdit">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>53</height>
+                   </size>
                   </property>
                   <property name="font">
                    <font>
                     <family>Montserrat</family>
-                    <pointsize>14</pointsize>
+                    <pointsize>12</pointsize>
                    </font>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
+                  </property>
+                  <property name="displayFormat">
+                   <string>d/M/yyyy</string>
                   </property>
                  </widget>
                 </item>
@@ -2871,6 +3071,10 @@ border:none;</string>
                   <height>500</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">
+</string>
+                </property>
                 <property name="plainText">
                  <string/>
                 </property>
@@ -2882,18 +3086,24 @@ border:none;</string>
              </layout>
             </widget>
            </item>
-           <item>
+           <item alignment="Qt::AlignHCenter">
             <widget class="QPushButton" name="pushButton_3">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
              <property name="minimumSize">
               <size>
-               <width>0</width>
+               <width>500</width>
                <height>42</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>1000</width>
+               <height>16777215</height>
               </size>
              </property>
              <property name="font">
@@ -2953,8 +3163,8 @@ drop-shadow: 5px 5px blue;
    </property>
    <property name="styleSheet">
     <string notr="true">QMenuBar {
+	
 	color: rgb(255, 0, 0);
-	color: rgb(255, 255, 255);
 	background-color: rgb(11, 79, 167);
 }
 QMenuBar:hover {
@@ -2964,11 +3174,7 @@ QMenuBar:hover {
    </property>
    <widget class="QMenu" name="menuApp">
     <property name="styleSheet">
-     <string notr="true">QMenu {
-	color: rgb(0, 0, 0);
-}
-QMenu::item:selected {
-	color: rgb(0, 0, 0);
+     <string notr="true">QMenu::item:selected {
 	background-color: rgb(179, 179, 179);
 }</string>
     </property>
@@ -3046,9 +3252,26 @@ QMenu::item:selected {
   <customwidget>
    <class>SwitchControl </class>
    <extends>QCheckBox</extends>
-   <header location="global">toggle_switch</header>
+   <header location="global">toggle_switch.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>admin_logout</sender>
+   <signal>clicked()</signal>
+   <receiver>centralwidget</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>741</x>
+     <y>505</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>396</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

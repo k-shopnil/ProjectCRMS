@@ -59,7 +59,7 @@ QLineEdit:focus {
     border: 1px solid #0084ff;
 }
 
-/* QMenuBar Styling */
+/* QMenuBar Styling
 QMenuBar {
     background-color: #2E2E2E;
     color: #E0E0E0;
@@ -76,7 +76,13 @@ QMenuBar::item:selected {
 
 /* QradioButton Styling */
 
-
+QMenuBar::item {
+    background-color: transparent;
+    color: #ffffff;
+}
+QMenu{
+    color:#ffffff;
+}
 
 /* QStatusBar Styling */
 QStatusBar {
@@ -117,6 +123,10 @@ QComboBox {
 /* QComboBox:drop-down {
     border-left: 1px solid #084ff4;
 } */
+
+QTabWidget::pane {
+    border: none;
+}
 
 QComboBox:focus {
     border: 1px solid #0084ff;

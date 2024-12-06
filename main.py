@@ -27,6 +27,7 @@ class MainApp(QMainWindow):
         self.timer.timeout.connect(self.update_time)
         self.timer.start(1000)  # Update every second
         
+        
         for index in range(1, self.ui.pages.count()):
             self.ui.pages.setTabVisible(index, False)
 
@@ -175,9 +176,14 @@ class MainApp(QMainWindow):
         # Handle the toggle switch state change
         if checked:
             self.setStyleSheet(stylesheetDark)
+            self.ui.admin_hero_2.setStyleSheet("border: 2px solid #ffffff;border-radius: 20px;")
+            self.ui.admin_hero.setStyleSheet("border: 2px solid #ffffff;border-radius: 20px;")
         else:
             self.setStyleSheet(stylesheetLight)
-        print(f"debug State: {'Dark mode ON' if checked else 'Dark mode OFF'}")    
+            self.ui.admin_hero_2.setStyleSheet("border: 2px solid rgb(4, 29, 45);border-radius: 20px;")
+            self.ui.admin_hero.setStyleSheet("border: 2px solid rgb(4, 29, 45);border-radius: 20px;")
+            
+            print(f"debug State: {'Dark mode ON' if checked else 'Dark mode OFF'}")    
         
 def load_stylesheet(file_path):
     with open(file_path, 'r') as file:

@@ -1,0 +1,42 @@
+stateDiagram-v2
+    [*] --> ResourceTypeSelection : Initial State
+    
+    state ResourceTypeSelection {
+        [*] --> MainComboBox
+        
+        state MainComboBox {
+            Classroom --> ClassroomSpecificWidgets
+            note right of Classroom
+                Enables:
+                - Room Number Combo Box
+                - Fixed Time Slots Combo Box
+                - Date Picker
+            end note
+            
+            OtherResourceTypes --> HTPResourceWidgets
+            note right of OtherResourceTypes
+                Disables:
+                - Room Number Combo Box
+                - Fixed Time Slots Combo Box
+            end note
+        }
+        
+        state ClassroomSpecificWidgets {
+            RoomNumberComboBox
+            FixedTimeSlotsComboBox
+            DatePicker
+            DisabledCustomTimeWidgets
+        }
+        
+        state HTPResourceWidgets {
+            EnabledCustomTimeWidgets
+            DatePicker
+        }
+    }
+    
+    note left of ResourceTypeSelection
+        HTP Resource Types:
+        - Playground
+        - Conference Hall
+        - Transportation
+    end note
