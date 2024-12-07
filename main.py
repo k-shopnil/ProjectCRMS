@@ -64,8 +64,8 @@ class MainApp(QMainWindow):
         self.toggle_switch.setChecked(False)
         # Connect signals and slots
         self.toggle_switch.stateChanged.connect(self.on_toggle_state_changed)
-        self.ui.homeButton_2.setStyleSheet("background-color: #0b4fa7; border:none;")
-        self.ui.homeButton.setStyleSheet("background-color: #0b4fa7; border:none;")
+        #self.ui.homeButton_2.setStyleSheet("background-color: #0b4fa7; border:none;")
+        #self.ui.homeButton.setStyleSheet("background-color: #0b4fa7; border:none;")
     
     def handle_enter_key(self):
         # Ensure the Enter key triggers the login only on the login page

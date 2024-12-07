@@ -248,7 +248,7 @@ class Ui_MainWindow(object):
         self.homeButton = QtWidgets.QPushButton(self.admin_navbar)
         self.homeButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.homeButton.setStyleSheet("QPushButton{\n"
-"background-color: rgb(4, 29, 45);;\n"
+"background-color: #0b4fa7;\n"
 "border:none;\n"
 "}\n"
 "QPushButton:hover{\n"
@@ -770,7 +770,7 @@ class Ui_MainWindow(object):
         self.homeButton_2 = QtWidgets.QPushButton(self.admin_navbar_2)
         self.homeButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.homeButton_2.setStyleSheet("QPushButton{\n"
-"background-color: rgb(4, 29, 45);;\n"
+"background-color: #0b4fa7;\n"
 "border:none;\n"
 "}\n"
 "QPushButton:hover{\n"
@@ -834,6 +834,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.admin_logout_3.sizePolicy().hasHeightForWidth())
         self.admin_logout_3.setSizePolicy(sizePolicy)
+        self.admin_logout_3.setMinimumSize(QtCore.QSize(60, 60))
         self.admin_logout_3.setMaximumSize(QtCore.QSize(60, 60))
         self.admin_logout_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.admin_logout_3.setLayoutDirection(QtCore.Qt.RightToLeft)
@@ -860,6 +861,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.admin_logout_4.sizePolicy().hasHeightForWidth())
         self.admin_logout_4.setSizePolicy(sizePolicy)
+        self.admin_logout_4.setMinimumSize(QtCore.QSize(60, 60))
         self.admin_logout_4.setMaximumSize(QtCore.QSize(60, 60))
         self.admin_logout_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.admin_logout_4.setLayoutDirection(QtCore.Qt.RightToLeft)
@@ -886,7 +888,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         self.label_5.setFont(font)
         self.label_5.setObjectName("label_5")
-        self.verticalLayout_19.addWidget(self.label_5)
+        self.verticalLayout_19.addWidget(self.label_5, 0, QtCore.Qt.AlignHCenter)
         self.frame_12 = QtWidgets.QFrame(self.frame_11)
         self.frame_12.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_12.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -1689,7 +1691,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuApp.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.pages.setCurrentIndex(7)
+        self.pages.setCurrentIndex(1)
         self.admin_logout.clicked.connect(self.centralwidget.close) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 

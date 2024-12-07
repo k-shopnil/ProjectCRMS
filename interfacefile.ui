@@ -174,7 +174,7 @@
     <item>
      <widget class="QTabWidget" name="pages">
       <property name="currentIndex">
-       <number>7</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="login_Tab">
        <attribute name="title">
@@ -516,7 +516,7 @@ color: rgba(175, 175, 175, 50);</string>
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
-background-color: rgb(4, 29, 45);;
+background-color: #0b4fa7;
 border:none;
 }
 QPushButton:hover{
@@ -1519,7 +1519,7 @@ drop-shadow: 5px 5px blue;
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QPushButton{
-background-color: rgb(4, 29, 45);;
+background-color: #0b4fa7;
 border:none;
 }
 QPushButton:hover{
@@ -1644,6 +1644,12 @@ border:none;
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>60</width>
+                  <height>60</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>60</width>
@@ -1694,6 +1700,12 @@ border:none;
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>60</width>
+                  <height>60</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>60</width>
@@ -1739,7 +1751,7 @@ border:none;
              </layout>
             </widget>
            </item>
-           <item>
+           <item alignment="Qt::AlignHCenter">
             <widget class="QLabel" name="label_5">
              <property name="font">
               <font>
