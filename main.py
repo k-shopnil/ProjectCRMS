@@ -2,18 +2,32 @@ import os
 import sqlite3
 import sys
 import datetime
-from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QShortcut
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QShortcut, QDialog, QVBoxLayout, QLabel
 from PyQt5.QtCore import Qt
 from ui import Ui_MainWindow
+from about import Ui_Dialog as Ui_AboutDialog
 from database_handler import store_reservation, get_all_reservations
 from toggle_switch import SwitchControl
 from PyQt5 import QtWidgets, QtCore, QtGui
-from PyQt5.QtCore import QFile
+from PyQt5.QtCore import QFile, QUrl
 from PyQt5.QtCore import QTimer, QDateTime
-from PyQt5.QtGui import QKeySequence
+from PyQt5.QtGui import QKeySequence, QDesktopServices
 from PyQt5.QtGui import QIcon, QPainter, QPdfWriter
 from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox, QPushButton, QWidget, QHBoxLayout, QGraphicsBlurEffect
 
+
+class AboutWindow(QDialog):
+    def __init__(self):
+        super(AboutWindow, self).__init__()
+        self.ui = Ui_AboutDialog()
+        self.ui.setupUi(self)
+
+        # Connect the GitHub button to open the repository link
+        self.ui.pushButton.clicked.connect(self.open_github_repo)
+
+    def open_github_repo(self):
+        # Replace the URL below with your GitHub repository link
+        QDesktopServices.openUrl(QUrl("https://github.com/k-shopnil/ProjectCRMS"))
 class MainApp(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -25,8 +39,13 @@ class MainApp(QMainWindow):
         self.ui.label_3.setText("CRMS V1.3 Beta | Developed By Group 5")
         self.add_combos()
         
+        self.ui.actionAbout.triggered.connect(self.show_about)
+        self.ui.actionForce_Exit.triggered.connect(self.force_exit)
+        self.ui.actionRefresh.triggered.connect(self.refresh_app)
+        
         self.ui.radioButton.setChecked(True)
         self.ui.radioButton_6.setChecked(True)
+        self.ui.pushButton_4.clicked.connect(self.passwordVisibility)
         
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_time)
@@ -67,6 +86,49 @@ class MainApp(QMainWindow):
         #self.ui.homeButton_2.setStyleSheet("background-color: #0b4fa7; border:none;")
         #self.ui.homeButton.setStyleSheet("background-color: #0b4fa7; border:none;")
     
+    def passwordVisibility(self):
+        if self.ui.lineEdit_2.echoMode() == QtWidgets.QLineEdit.Password:
+            self.ui.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.Normal)
+            self.ui.pushButton_4.setIcon(QtGui.QIcon("Asset\eye-svgrepo-com.svg"))
+        else:
+            self.ui.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.Password)
+            self.ui.pushButton_4.setIcon(QtGui.QIcon("Asset/eye-slash-svgrepo-com.svg"))
+      
+    def force_exit(self):
+        QApplication.quit()
+    
+    def refresh_app(self):
+        
+        #self.load_latest_data()
+
+        self.refresh_popup = QDialog(self)
+        self.refresh_popup.setWindowFlags(Qt.FramelessWindowHint | Qt.Dialog) 
+        self.refresh_popup.setFixedSize(300, 100)
+        layout = QVBoxLayout(self.refresh_popup)
+        label = QLabel("Refreshing System... Please wait!", self.refresh_popup)
+        label.setAlignment(Qt.AlignCenter) 
+        layout.addWidget(label)
+        self.refresh_popup.setStyleSheet("""
+            QLabel {
+                font-size: 14px;
+                color: black;
+                alignment: center;
+            }
+            QDialog {
+                border: 1px solid gray;
+                border-radius: 15px;
+            }
+        """)
+        self.refresh_popup.setModal(False)  # Non-blocking
+        self.refresh_popup.show()
+
+        # Automatically close the dialog after 1 second
+        QTimer.singleShot(1000, self.refresh_popup.close)
+    
+    def show_about(self):
+        self.about_window = AboutWindow()
+        self.about_window.exec_()
+        
     def handle_enter_key(self):
         # Ensure the Enter key triggers the login only on the login page
         if self.ui.pages.currentIndex() == 0:  # Assuming login is tab 0
@@ -130,18 +192,36 @@ class MainApp(QMainWindow):
             QMessageBox.warning(self, "Error", "Incorrect credentials! Try again with correct details.")
     
 
-    
+
     def closeEvent(self, event):
+    
         reply = QMessageBox.question(
             self,
             "Exit Confirmation",
-            "Are you sure you want to exit?",
+            "Are you sure you want to exit?\nAll unsaved changes will be saved automatically.",
             QMessageBox.Yes | QMessageBox.No,
             QMessageBox.No,
         )
+
         if reply == QMessageBox.Yes:
-            event.accept()
+            try:
+                self.save_all_data()
+
+                self.database.close()
+
+                event.accept()
+                print("Application closed successfully.")
+
+            except Exception as e:
+                QMessageBox.critical(
+                    self,
+                    "Error",
+                    f"An error occurred while safe exiting the application:\n{str(e)}, \n try Force Exit",
+                )
+                # Ignore the close event
+                event.ignore()
         else:
+            # Ignore the close event
             event.ignore()
     
     def logout(self):
@@ -193,6 +273,8 @@ class MainApp(QMainWindow):
             self.ui.frame_20.setStyleSheet("background-color: rgb(227, 227, 227); border:none; border-radius: 20px;")
             
             print(f"debug State: {'Dark mode ON' if checked else 'Dark mode OFF'}")    
+
+
         
 def load_stylesheet(file_path):
     with open(file_path, 'r') as file:
