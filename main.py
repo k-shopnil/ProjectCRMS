@@ -12,7 +12,7 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtCore import QFile, QUrl
 from PyQt5.QtCore import QTimer, QDateTime, QByteArray
 from PyQt5.QtGui import QKeySequence, QDesktopServices, QPixmap, QMovie
-from PyQt5.QtGui import QIcon, QPainter, QPdfWriter
+from PyQt5.QtGui import QIcon, QPainter
 from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox, QPushButton, QWidget, QHBoxLayout, QGraphicsBlurEffect
 
 class LoginSession:
