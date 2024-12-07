@@ -202,13 +202,14 @@ class MainApp(QMainWindow):
             role = "Teacher"
         else:
             role = "Admin"
+        print(userid,password,role)
         conn = sqlite3.connect('data/crms_central.db')
         #print(f"Database path: {'listview.db')}")
         cur = conn.cursor()
         query = "SELECT user_id,full_name,roles,account_flag FROM user WHERE user_id=? AND password=? AND roles=?"
         cur.execute(query, (userid, password, role))
         result = cur.fetchone()
-        #print(role)
+        print(result)
         conn.close()
         if result:
             user_id,name,role,flag = result

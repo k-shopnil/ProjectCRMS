@@ -2659,18 +2659,18 @@ border:none;</string>
                           </property>
                          </widget>
                         </item>
-                        <item alignment="Qt::AlignHCenter">
+                        <item alignment="Qt::AlignRight">
                          <widget class="QLabel" name="resevation_heading_12">
                           <property name="minimumSize">
                            <size>
-                            <width>300</width>
+                            <width>274</width>
                             <height>35</height>
                            </size>
                           </property>
                           <property name="font">
                            <font>
                             <family>Montserrat</family>
-                            <pointsize>14</pointsize>
+                            <pointsize>10</pointsize>
                             <bold>false</bold>
                            </font>
                           </property>
