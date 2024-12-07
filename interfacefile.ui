@@ -2280,7 +2280,7 @@ background-color: rgb(227, 227, 227);
                    </property>
                    <property name="maximumSize">
                     <size>
-                     <width>2000</width>
+                     <width>0</width>
                      <height>85</height>
                     </size>
                    </property>
@@ -2356,7 +2356,7 @@ border:none;</string>
                      <string notr="true">background-color: rgb(255, 255, 255);
 border-color: rgb(0, 0, 0);
 border: 2px solid #007ACC;
-border-radius: 25px;</string>
+border-radius:0px;</string>
                     </property>
                     <property name="text">
                      <string/>

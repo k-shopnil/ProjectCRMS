@@ -1186,7 +1186,7 @@ class Ui_MainWindow(object):
         self.label_6.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border-color: rgb(0, 0, 0);\n"
 "border: 2px solid #007ACC;\n"
-"border-radius: 25px;")
+"border-radius:0px;")
         self.label_6.setText("")
         self.label_6.setObjectName("label_6")
         self.verticalLayout_25.addWidget(self.frame_22, 0, QtCore.Qt.AlignHCenter)

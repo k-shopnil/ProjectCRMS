@@ -10,7 +10,7 @@ from database_handler import *
 from toggle_switch import SwitchControl
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtCore import QFile, QUrl
-from PyQt5.QtCore import QTimer, QDateTime
+from PyQt5.QtCore import QTimer, QDateTime, QByteArray
 from PyQt5.QtGui import QKeySequence, QDesktopServices, QPixmap, QMovie
 from PyQt5.QtGui import QIcon, QPainter, QPdfWriter
 from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox, QPushButton, QWidget, QHBoxLayout, QGraphicsBlurEffect
@@ -232,14 +232,19 @@ class MainApp(QMainWindow):
         
         """Retrieve the user's profile details from the users table."""
         conn,cur = connect_to_db()
-        query = "SELECT full_name,roles,dept,account_flag FROM user WHERE user_id = ?"
+        query = "SELECT picture,full_name,roles,dept,account_flag FROM user WHERE user_id = ?"
         cur.execute(query, (user_id,))
         result = cur.fetchone()
-        name, role, dept, flag = result
+        picture, name, role, dept, flag = result
         self.ui.resevation_heading_6.setText(name)
         self.ui.resevation_heading_10.setText(role)
         self.ui.resevation_heading_11.setText(dept)
         self.ui.resevation_heading_13.setText(str(user_id))
+        image_data = QByteArray(result[0])  # Convert binary data
+        pixmap = QPixmap()
+        pixmap.loadFromData(image_data)
+        self.ui.label_6.setPixmap(pixmap)
+        self.ui.label_6.setScaledContents(True)
         if flag == 1:
             self.ui.resevation_heading_12.setText("Account Restricted for system abuse")
         else:
