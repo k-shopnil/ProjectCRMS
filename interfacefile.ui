@@ -150,7 +150,7 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>400</width>
+        <width>457</width>
         <height>95</height>
        </size>
       </property>
@@ -174,7 +174,7 @@
     <item>
      <widget class="QTabWidget" name="pages">
       <property name="currentIndex">
-       <number>0</number>
+       <number>7</number>
       </property>
       <widget class="QWidget" name="login_Tab">
        <attribute name="title">
@@ -382,8 +382,8 @@ drop-shadow: 5px 5px blue;
             <rect>
              <x>200</x>
              <y>400</y>
-             <width>397</width>
-             <height>51</height>
+             <width>400</width>
+             <height>55</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -391,6 +391,12 @@ drop-shadow: 5px 5px blue;
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>400</width>
+             <height>55</height>
+            </size>
            </property>
            <property name="font">
             <font>
@@ -2314,15 +2320,15 @@ border-radius: 25px;</string>
                  <item alignment="Qt::AlignHCenter">
                   <widget class="QFrame" name="frame_21">
                    <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
                    <property name="minimumSize">
                     <size>
-                     <width>223</width>
-                     <height>129</height>
+                     <width>260</width>
+                     <height>185</height>
                     </size>
                    </property>
                    <property name="sizeIncrement">
@@ -2339,17 +2345,38 @@ border-radius: 25px;</string>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_29">
                     <item>
-                     <layout class="QVBoxLayout" name="verticalLayout_26">
+                     <layout class="QVBoxLayout" name="verticalLayout_26" stretch="0,0,0,0">
                       <property name="spacing">
-                       <number>6</number>
+                       <number>9</number>
+                      </property>
+                      <property name="sizeConstraint">
+                       <enum>QLayout::SetMinAndMaxSize</enum>
                       </property>
                       <property name="bottomMargin">
-                       <number>34</number>
+                       <number>0</number>
                       </property>
                       <item>
                        <layout class="QHBoxLayout" name="horizontalLayout_17">
+                        <property name="spacing">
+                         <number>21</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>15</number>
+                        </property>
                         <item alignment="Qt::AlignLeft">
                          <widget class="QLabel" name="resevation_heading_7">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>74</width>
+                            <height>35</height>
+                           </size>
+                          </property>
                           <property name="font">
                            <font>
                             <family>Montserrat</family>
@@ -2360,11 +2387,12 @@ border-radius: 25px;</string>
                           <property name="styleSheet">
                            <string notr="true">color:rgba(4, 29, 45);
 color: rgb(154, 154, 154);
-
+background-color: rgb(0, 0, 0);
+border-radius:10px;
 border:none;</string>
                           </property>
                           <property name="text">
-                           <string>Role:</string>
+                           <string>Role </string>
                           </property>
                           <property name="alignment">
                            <set>Qt::AlignCenter</set>
@@ -2373,6 +2401,18 @@ border:none;</string>
                         </item>
                         <item alignment="Qt::AlignLeft">
                          <widget class="QLabel" name="resevation_heading_10">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>74</width>
+                            <height>35</height>
+                           </size>
+                          </property>
                           <property name="font">
                            <font>
                             <family>Montserrat</family>
@@ -2398,8 +2438,17 @@ border:none;</string>
                       </item>
                       <item>
                        <layout class="QHBoxLayout" name="horizontalLayout_16">
+                        <property name="bottomMargin">
+                         <number>15</number>
+                        </property>
                         <item alignment="Qt::AlignLeft">
                          <widget class="QLabel" name="resevation_heading_8">
+                          <property name="minimumSize">
+                           <size>
+                            <width>74</width>
+                            <height>35</height>
+                           </size>
+                          </property>
                           <property name="font">
                            <font>
                             <family>Montserrat</family>
@@ -2410,11 +2459,12 @@ border:none;</string>
                           <property name="styleSheet">
                            <string notr="true">color:rgba(4, 29, 45);
 color: rgb(154, 154, 154);
-
+background-color: rgb(0, 0, 0);
+border-radius:10px;
 border:none;</string>
                           </property>
                           <property name="text">
-                           <string>Dept:</string>
+                           <string>Dept.</string>
                           </property>
                           <property name="alignment">
                            <set>Qt::AlignCenter</set>
@@ -2423,6 +2473,12 @@ border:none;</string>
                         </item>
                         <item>
                          <widget class="QLabel" name="resevation_heading_11">
+                          <property name="minimumSize">
+                           <size>
+                            <width>74</width>
+                            <height>35</height>
+                           </size>
+                          </property>
                           <property name="font">
                            <font>
                             <family>Montserrat</family>
@@ -2448,8 +2504,17 @@ border:none;</string>
                       </item>
                       <item>
                        <layout class="QHBoxLayout" name="horizontalLayout_15">
+                        <property name="bottomMargin">
+                         <number>15</number>
+                        </property>
                         <item alignment="Qt::AlignLeft">
                          <widget class="QLabel" name="resevation_heading_9">
+                          <property name="minimumSize">
+                           <size>
+                            <width>74</width>
+                            <height>35</height>
+                           </size>
+                          </property>
                           <property name="font">
                            <font>
                             <family>Montserrat</family>
@@ -2460,7 +2525,8 @@ border:none;</string>
                           <property name="styleSheet">
                            <string notr="true">color:rgba(4, 29, 45);
 color: rgb(154, 154, 154);
-
+background-color: rgb(0, 0, 0);
+border-radius:10px;
 border:none;</string>
                           </property>
                           <property name="text">
@@ -2473,6 +2539,12 @@ border:none;</string>
                         </item>
                         <item>
                          <widget class="QLabel" name="resevation_heading_13">
+                          <property name="minimumSize">
+                           <size>
+                            <width>74</width>
+                            <height>35</height>
+                           </size>
+                          </property>
                           <property name="font">
                            <font>
                             <family>Montserrat</family>
@@ -2498,8 +2570,20 @@ border:none;</string>
                       </item>
                       <item>
                        <layout class="QHBoxLayout" name="horizontalLayout_14">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>15</number>
+                        </property>
                         <item alignment="Qt::AlignLeft">
                          <widget class="QLabel" name="resevation_heading_14">
+                          <property name="minimumSize">
+                           <size>
+                            <width>74</width>
+                            <height>35</height>
+                           </size>
+                          </property>
                           <property name="font">
                            <font>
                             <family>Montserrat</family>
@@ -2510,7 +2594,8 @@ border:none;</string>
                           <property name="styleSheet">
                            <string notr="true">color:rgba(4, 29, 45);
 color: rgb(154, 154, 154);
-
+background-color: rgb(0, 0, 0);
+border-radius:10px;
 border:none;</string>
                           </property>
                           <property name="text">
@@ -2523,6 +2608,12 @@ border:none;</string>
                         </item>
                         <item>
                          <widget class="QLabel" name="resevation_heading_12">
+                          <property name="minimumSize">
+                           <size>
+                            <width>74</width>
+                            <height>35</height>
+                           </size>
+                          </property>
                           <property name="font">
                            <font>
                             <family>Montserrat</family>
@@ -3078,8 +3169,7 @@ border:none;
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">
-</string>
+                 <string notr="true"/>
                 </property>
                 <property name="plainText">
                  <string/>

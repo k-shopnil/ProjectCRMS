@@ -185,10 +185,12 @@ class MainApp(QMainWindow):
             self.setStyleSheet(stylesheetDark)
             self.ui.admin_hero_2.setStyleSheet("border: 2px solid #ffffff;border-radius: 20px;")
             self.ui.admin_hero.setStyleSheet("border: 2px solid #ffffff;border-radius: 20px;")
+            self.ui.frame_20.setStyleSheet("background-color: #272727; border:none; border-radius: 20px;")
         else:
             self.setStyleSheet(stylesheetLight)
             self.ui.admin_hero_2.setStyleSheet("border: 2px solid rgb(4, 29, 45);border-radius: 20px;")
             self.ui.admin_hero.setStyleSheet("border: 2px solid rgb(4, 29, 45);border-radius: 20px;")
+            self.ui.frame_20.setStyleSheet("background-color: rgb(227, 227, 227); border:none; border-radius: 20px;")
             
             print(f"debug State: {'Dark mode ON' if checked else 'Dark mode OFF'}")    
         
