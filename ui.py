@@ -15,7 +15,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(794, 600)
+        MainWindow.resize(794, 579)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1151,18 +1151,19 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame_22.sizePolicy().hasHeightForWidth())
         self.frame_22.setSizePolicy(sizePolicy)
-        self.frame_22.setMinimumSize(QtCore.QSize(450, 85))
+        self.frame_22.setMinimumSize(QtCore.QSize(500, 85))
         self.frame_22.setMaximumSize(QtCore.QSize(2000, 85))
         self.frame_22.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_22.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_22.setObjectName("frame_22")
         self.resevation_heading_6 = QtWidgets.QLabel(self.frame_22)
-        self.resevation_heading_6.setGeometry(QtCore.QRect(150, 20, 223, 33))
+        self.resevation_heading_6.setGeometry(QtCore.QRect(150, 20, 333, 33))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.resevation_heading_6.sizePolicy().hasHeightForWidth())
         self.resevation_heading_6.setSizePolicy(sizePolicy)
+        self.resevation_heading_6.setMinimumSize(QtCore.QSize(329, 0))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         font.setPointSize(20)
@@ -1175,7 +1176,7 @@ class Ui_MainWindow(object):
         self.resevation_heading_6.setAlignment(QtCore.Qt.AlignCenter)
         self.resevation_heading_6.setObjectName("resevation_heading_6")
         self.label_6 = QtWidgets.QLabel(self.frame_22)
-        self.label_6.setGeometry(QtCore.QRect(60, 0, 71, 76))
+        self.label_6.setGeometry(QtCore.QRect(70, 0, 71, 76))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1195,7 +1196,8 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame_21.sizePolicy().hasHeightForWidth())
         self.frame_21.setSizePolicy(sizePolicy)
-        self.frame_21.setMinimumSize(QtCore.QSize(260, 185))
+        self.frame_21.setMinimumSize(QtCore.QSize(370, 185))
+        self.frame_21.setMaximumSize(QtCore.QSize(370, 16777215))
         self.frame_21.setSizeIncrement(QtCore.QSize(0, 0))
         self.frame_21.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_21.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -1249,7 +1251,7 @@ class Ui_MainWindow(object):
 "border:none;")
         self.resevation_heading_10.setAlignment(QtCore.Qt.AlignCenter)
         self.resevation_heading_10.setObjectName("resevation_heading_10")
-        self.horizontalLayout_17.addWidget(self.resevation_heading_10, 0, QtCore.Qt.AlignLeft)
+        self.horizontalLayout_17.addWidget(self.resevation_heading_10, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_26.addLayout(self.horizontalLayout_17)
         self.horizontalLayout_16 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_16.setContentsMargins(-1, -1, -1, 15)
@@ -1282,7 +1284,7 @@ class Ui_MainWindow(object):
 "border:none;")
         self.resevation_heading_11.setAlignment(QtCore.Qt.AlignCenter)
         self.resevation_heading_11.setObjectName("resevation_heading_11")
-        self.horizontalLayout_16.addWidget(self.resevation_heading_11)
+        self.horizontalLayout_16.addWidget(self.resevation_heading_11, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_26.addLayout(self.horizontalLayout_16)
         self.horizontalLayout_15 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_15.setContentsMargins(-1, -1, -1, 15)
@@ -1315,11 +1317,11 @@ class Ui_MainWindow(object):
 "border:none;")
         self.resevation_heading_13.setAlignment(QtCore.Qt.AlignCenter)
         self.resevation_heading_13.setObjectName("resevation_heading_13")
-        self.horizontalLayout_15.addWidget(self.resevation_heading_13)
+        self.horizontalLayout_15.addWidget(self.resevation_heading_13, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_26.addLayout(self.horizontalLayout_15)
         self.horizontalLayout_14 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_14.setContentsMargins(-1, -1, -1, 15)
-        self.horizontalLayout_14.setSpacing(0)
+        self.horizontalLayout_14.setSpacing(1)
         self.horizontalLayout_14.setObjectName("horizontalLayout_14")
         self.resevation_heading_14 = QtWidgets.QLabel(self.frame_21)
         self.resevation_heading_14.setMinimumSize(QtCore.QSize(74, 35))
@@ -1337,7 +1339,7 @@ class Ui_MainWindow(object):
         self.resevation_heading_14.setObjectName("resevation_heading_14")
         self.horizontalLayout_14.addWidget(self.resevation_heading_14, 0, QtCore.Qt.AlignLeft)
         self.resevation_heading_12 = QtWidgets.QLabel(self.frame_21)
-        self.resevation_heading_12.setMinimumSize(QtCore.QSize(74, 35))
+        self.resevation_heading_12.setMinimumSize(QtCore.QSize(300, 35))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         font.setPointSize(14)
@@ -1349,7 +1351,7 @@ class Ui_MainWindow(object):
 "border:none;")
         self.resevation_heading_12.setAlignment(QtCore.Qt.AlignCenter)
         self.resevation_heading_12.setObjectName("resevation_heading_12")
-        self.horizontalLayout_14.addWidget(self.resevation_heading_12)
+        self.horizontalLayout_14.addWidget(self.resevation_heading_12, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_26.addLayout(self.horizontalLayout_14)
         self.verticalLayout_29.addLayout(self.verticalLayout_26)
         self.verticalLayout_25.addWidget(self.frame_21, 0, QtCore.Qt.AlignHCenter)
@@ -1650,8 +1652,8 @@ class Ui_MainWindow(object):
         self.menubar.setFocusPolicy(QtCore.Qt.WheelFocus)
         self.menubar.setStyleSheet("QMenuBar {\n"
 "    \n"
-"    color: rgb(255, 0, 0);\n"
-"    background-color: rgb(11, 79, 167);\n"
+"    background-color: rgb(45, 0, 134);\n"
+"    color: rgb(11, 79, 167);\n"
 "}\n"
 "QMenuBar:hover {\n"
 "    color:rgb(0,0,0);\n"
@@ -1700,7 +1702,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuApp.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.pages.setCurrentIndex(0)
+        self.pages.setCurrentIndex(7)
         self.admin_logout.clicked.connect(self.centralwidget.close) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -1806,7 +1808,7 @@ class Ui_MainWindow(object):
         self.pages.setTabText(self.pages.indexOf(self.user_notifications), _translate("MainWindow", "Tab 7"))
         self.reservation_BTH_5.setToolTip(_translate("MainWindow", "Go back to home"))
         self.resevation_heading_5.setText(_translate("MainWindow", "User Profile"))
-        self.resevation_heading_6.setText(_translate("MainWindow", "f_Name l_Name"))
+        self.resevation_heading_6.setText(_translate("MainWindow", "Borhan Uddin Mahim"))
         self.resevation_heading_7.setText(_translate("MainWindow", "Role "))
         self.resevation_heading_10.setText(_translate("MainWindow", "$$$$$$$$$$$"))
         self.resevation_heading_8.setText(_translate("MainWindow", "Dept."))

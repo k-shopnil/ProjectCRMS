@@ -6,16 +6,30 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QShortcut, Q
 from PyQt5.QtCore import Qt
 from ui import Ui_MainWindow
 from about import Ui_Dialog as Ui_AboutDialog
-from database_handler import store_reservation, get_all_reservations
+from database_handler import *
 from toggle_switch import SwitchControl
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtCore import QFile, QUrl
 from PyQt5.QtCore import QTimer, QDateTime
-from PyQt5.QtGui import QKeySequence, QDesktopServices
+from PyQt5.QtGui import QKeySequence, QDesktopServices, QPixmap, QMovie
 from PyQt5.QtGui import QIcon, QPainter, QPdfWriter
 from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox, QPushButton, QWidget, QHBoxLayout, QGraphicsBlurEffect
 
+class LoginSession:
+    def __init__(self):
+        self.user_id = None
+        self.role = None
+        self.name = None
+        self.flag = None
 
+    def clear(self):
+        self.user_id = None
+        self.role = None
+        self.name = None
+        self.flag = None
+
+# Initialize session globally
+current_session = LoginSession()
 class AboutWindow(QDialog):
     def __init__(self):
         super(AboutWindow, self).__init__()
@@ -37,6 +51,8 @@ class MainApp(QMainWindow):
         self.ui.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.Password)
         self.ui.lineEdit_2.setPlaceholderText("Enter Password")
         self.ui.label_3.setText("CRMS V1.3 Beta | Developed By Group 5")
+        print(current_session.name)
+        self.update_greeting()
         self.add_combos()
         
         self.ui.actionAbout.triggered.connect(self.show_about)
@@ -57,6 +73,7 @@ class MainApp(QMainWindow):
 
         # Connect login button to login function
         self.ui.pushButton.clicked.connect(self.login)
+        
         self.ui.admin_logout.clicked.connect(self.logout)
         self.ui.admin_logout_4.clicked.connect(self.logout)
         self.ui.homeButton.clicked.connect(lambda: self.ui.pages.setCurrentIndex(1))
@@ -71,6 +88,7 @@ class MainApp(QMainWindow):
         self.ui.reservation_BTH_5.clicked.connect(lambda: self.ui.pages.setCurrentIndex(5))
         self.ui.reservation_BTH_6.clicked.connect(lambda: self.ui.pages.setCurrentIndex(5))
         self.ui.pushButton_8.clicked.connect(lambda: self.ui.pages.setCurrentIndex(7))
+        self.ui.pushButton_8.clicked.connect(lambda: self.load_profile(current_session.user_id))
         self.ui.pushButton_7.clicked.connect(lambda: self.ui.pages.setCurrentIndex(8))
         self.ui.admin_logout_3.clicked.connect(lambda: self.ui.pages.setCurrentIndex(6))
         self.ui.pushButton_3.clicked.connect(self.submit_reservation)
@@ -85,7 +103,15 @@ class MainApp(QMainWindow):
         self.toggle_switch.stateChanged.connect(self.on_toggle_state_changed)
         #self.ui.homeButton_2.setStyleSheet("background-color: #0b4fa7; border:none;")
         #self.ui.homeButton.setStyleSheet("background-color: #0b4fa7; border:none;")
-    
+    def update_greeting(self):
+        """Updates the greeting label based on the current session"""
+        if current_session.name:
+            current_session.user_id = current_session.user_id
+            first_name = current_session.name.split()[0]
+            self.ui.greet_2.setText(f"Welcome, {first_name}!")
+        else:
+            self.ui.greet_2.setText("Welcome!")
+            
     def passwordVisibility(self):
         if self.ui.lineEdit_2.echoMode() == QtWidgets.QLineEdit.Password:
             self.ui.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.Normal)
@@ -103,9 +129,15 @@ class MainApp(QMainWindow):
 
         self.refresh_popup = QDialog(self)
         self.refresh_popup.setWindowFlags(Qt.FramelessWindowHint | Qt.Dialog) 
-        self.refresh_popup.setFixedSize(300, 100)
+        self.refresh_popup.setFixedSize(320/4, 320/4)
         layout = QVBoxLayout(self.refresh_popup)
-        label = QLabel("Refreshing System... Please wait!", self.refresh_popup)
+        label = QLabel(self.refresh_popup)
+        pixmap = QMovie("Asset/speech-bubble.gif")
+        label.setMovie(pixmap)
+        pixmap.start()
+        label.setScaledContents(True)
+        
+        
         label.setAlignment(Qt.AlignCenter) 
         layout.addWidget(label)
         self.refresh_popup.setStyleSheet("""
@@ -162,7 +194,7 @@ class MainApp(QMainWindow):
         self.ui.comboBox_2.addItem("B2-910")
         
     def login(self):
-        username = self.ui.lineEdit.text()
+        userid = self.ui.lineEdit.text()
         password = self.ui.lineEdit_2.text()
         if self.ui.radioButton_2.isChecked():
             role = "Student"
@@ -173,25 +205,47 @@ class MainApp(QMainWindow):
         conn = sqlite3.connect('data/crms_central.db')
         #print(f"Database path: {'listview.db')}")
         cur = conn.cursor()
-        query = "SELECT * FROM user WHERE user_id=? AND password=? AND roles=?"
-        cur.execute(query, (username, password, role))
+        query = "SELECT user_id,full_name,roles,account_flag FROM user WHERE user_id=? AND password=? AND roles=?"
+        cur.execute(query, (userid, password, role))
         result = cur.fetchone()
-        print(role)
+        #print(role)
         conn.close()
-        
-        if result and role == "Admin":
-            self.ui.pages.setCurrentIndex(1)
-            QMessageBox.information(self, "Success", "Login Successful!")
-        elif result and role == "Student":
-            self.ui.pages.setCurrentIndex(5)
-            QMessageBox.information(self, "Success", "Login Successful!")
-        elif result and role == "Teacher":
-            self.ui.pages.setCurrentIndex(5)
-            QMessageBox.information(self, "Success", "Login Successful!")
+        if result:
+            user_id,name,role,flag = result
+            #print(user_id,name,role,flag)
+            current_session.user_id = user_id
+            current_session.role = role
+            current_session.flag = flag
+            current_session.name = name
+            name = name.split()[0]
+            self.update_greeting()
+            
+            QMessageBox.information(self, "Success", "Login Successful! \n Welcome "+name+"!")
+            if role == "Admin":
+                self.ui.pages.setCurrentIndex(1)
+            elif result and role == "Teacher" or role == "Student":
+                self.ui.pages.setCurrentIndex(5)
         else:
             QMessageBox.warning(self, "Error", "Incorrect credentials! Try again with correct details.")
-    
+        
+    def load_profile(self,user_id):
+        
+        """Retrieve the user's profile details from the users table."""
+        conn,cur = connect_to_db()
+        query = "SELECT full_name,roles,dept,account_flag FROM user WHERE user_id = ?"
+        cur.execute(query, (user_id,))
+        result = cur.fetchone()
+        name, role, dept, flag = result
+        self.ui.resevation_heading_6.setText(name)
+        self.ui.resevation_heading_10.setText(role)
+        self.ui.resevation_heading_11.setText(dept)
+        self.ui.resevation_heading_13.setText(str(user_id))
+        if flag == 1:
+            self.ui.resevation_heading_12.setText("Account Restricted for system abuse")
+        else:
+            self.ui.resevation_heading_12.setText("No restrictions")
 
+        conn.close()
 
     def closeEvent(self, event):
     
@@ -293,6 +347,7 @@ def dayFromdate(date):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setAttribute(Qt.AA_UseHighDpiPixmaps)
+
     stylesheetDark = load_stylesheet('dark.qss')
     stylesheetLight = load_stylesheet('light.qss')
     main_window = MainApp()
