@@ -1702,8 +1702,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuApp.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.pages.setCurrentIndex(7)
-        self.admin_logout.clicked.connect(self.centralwidget.close) # type: ignore
+        self.pages.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

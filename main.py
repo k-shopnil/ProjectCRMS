@@ -129,7 +129,7 @@ class MainApp(QMainWindow):
 
         self.refresh_popup = QDialog(self)
         self.refresh_popup.setWindowFlags(Qt.FramelessWindowHint | Qt.Dialog) 
-        self.refresh_popup.setFixedSize(320/4, 320/4)
+        self.refresh_popup.setFixedSize(80, 80)
         layout = QVBoxLayout(self.refresh_popup)
         label = QLabel(self.refresh_popup)
         pixmap = QMovie("Asset/speech-bubble.gif")

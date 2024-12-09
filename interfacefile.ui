@@ -174,7 +174,7 @@
     <item>
      <widget class="QTabWidget" name="pages">
       <property name="currentIndex">
-       <number>7</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="login_Tab">
        <attribute name="title">
@@ -3405,22 +3405,5 @@ QMenuBar:hover {
   </customwidget>
  </customwidgets>
  <resources/>
- <connections>
-  <connection>
-   <sender>admin_logout</sender>
-   <signal>clicked()</signal>
-   <receiver>centralwidget</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>741</x>
-     <y>505</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>396</x>
-     <y>291</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
