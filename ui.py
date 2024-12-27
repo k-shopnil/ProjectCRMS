@@ -951,14 +951,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_12.addWidget(self.admin_hero_2)
         self.tableWidget_3 = QtWidgets.QTableWidget(self.frame_12)
         self.tableWidget_3.setObjectName("tableWidget_3")
-        self.tableWidget_3.setColumnCount(3)
+        self.tableWidget_3.setColumnCount(2)
         self.tableWidget_3.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_3.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_3.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_3.setHorizontalHeaderItem(2, item)
         self.horizontalLayout_12.addWidget(self.tableWidget_3)
         self.verticalLayout_19.addWidget(self.frame_12)
         self.verticalLayout_17.addWidget(self.frame_11)
@@ -1702,7 +1700,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuApp.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.pages.setCurrentIndex(0)
+        self.pages.setCurrentIndex(5)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1786,8 +1784,6 @@ class Ui_MainWindow(object):
         item = self.tableWidget_3.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Date"))
         item = self.tableWidget_3.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Time"))
-        item = self.tableWidget_3.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "Message"))
         self.pages.setTabText(self.pages.indexOf(self.user_dashboard), _translate("MainWindow", "Tab 6"))
         self.reservation_BTH_4.setToolTip(_translate("MainWindow", "Go back to home"))

@@ -174,7 +174,7 @@
     <item>
      <widget class="QTabWidget" name="pages">
       <property name="currentIndex">
-       <number>0</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="login_Tab">
        <attribute name="title">
@@ -1901,11 +1901,6 @@ background-color: rgb(4, 29, 45);</string>
                 <column>
                  <property name="text">
                   <string>Date</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Time</string>
                  </property>
                 </column>
                 <column>

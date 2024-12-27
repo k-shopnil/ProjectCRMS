@@ -1,5 +1,6 @@
 # database_handler.py
 import sqlite3
+from datetime import date
 
 # Database connection setup
 def connect_to_db():
@@ -42,3 +43,34 @@ def get_all_reservations():
     reservations = cur.fetchall()
     conn.close()
     return reservations
+
+def add_notice(audience,message):
+    conn, cur = connect_to_db()
+    notice_date = date.today()
+    cur.execute("SELECT COUNT(*) FROM notices")
+    count = cur.fetchone()[0]
+    if count == 0:
+        cur.execute('''
+        INSERT INTO notices (notice_id,audience, notice_date, message)
+        VALUES (?, ?, ?, ?)
+        ''', (1,audience, notice_date, message))
+    else:
+        cur.execute('''
+        INSERT INTO notices (audience, notice_date, message)
+        VALUES (?, ?, ?)
+        ''', (audience, notice_date, message))
+    conn.commit()
+    conn.close()
+
+def fetch_notices(role):
+    conn,cur=connect_to_db()
+    cur.execute('''
+        SELECT notice_date, message
+        FROM notices
+        WHERE audience = ? OR audience = 'Everyone'
+        ORDER BY notice_date DESC
+    ''', (role,))
+    notices = cur.fetchall()
+    print(f"notices: {notices}")
+    conn.close()
+    return notices

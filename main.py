@@ -1,7 +1,9 @@
 import os
 import sqlite3
 import sys
+import hashlib
 import datetime
+from datetime import date
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QShortcut, QDialog, QVBoxLayout, QLabel
 from PyQt5.QtCore import Qt
 from ui import Ui_MainWindow
@@ -29,13 +31,13 @@ class LoginSession:
         self.flag = None
 
 # Initialize session globally
-current_session = LoginSession()
+
 class AboutWindow(QDialog):
     def __init__(self):
         super(AboutWindow, self).__init__()
         self.ui = Ui_AboutDialog()
         self.ui.setupUi(self)
-
+        
         # Connect the GitHub button to open the repository link
         self.ui.pushButton.clicked.connect(self.open_github_repo)
 
@@ -47,13 +49,16 @@ class MainApp(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.current_session = LoginSession()
         self.ui.pages.tabBar().setVisible(False)
         self.ui.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.Password)
         self.ui.lineEdit_2.setPlaceholderText("Enter Password")
         self.ui.label_3.setText("CRMS V1.3 Beta | Developed By Group 5")
-        print(current_session.name)
+        
+        
         self.update_greeting()
-        self.add_combos()
+        self.load_notices(self.current_session.role)
+        #self.add_combos()
         
         self.ui.actionAbout.triggered.connect(self.show_about)
         self.ui.actionForce_Exit.triggered.connect(self.force_exit)
@@ -76,6 +81,7 @@ class MainApp(QMainWindow):
         
         self.ui.admin_logout.clicked.connect(self.logout)
         self.ui.admin_logout_4.clicked.connect(self.logout)
+        self.ui.pushButton_2.clicked.connect(self.post_notice)
         self.ui.homeButton.clicked.connect(lambda: self.ui.pages.setCurrentIndex(1))
         self.ui.homeButton_2.clicked.connect(lambda: self.ui.pages.setCurrentIndex(5))
         self.ui.logsButton.clicked.connect(lambda: self.ui.pages.setCurrentIndex(3))
@@ -88,7 +94,8 @@ class MainApp(QMainWindow):
         self.ui.reservation_BTH_5.clicked.connect(lambda: self.ui.pages.setCurrentIndex(5))
         self.ui.reservation_BTH_6.clicked.connect(lambda: self.ui.pages.setCurrentIndex(5))
         self.ui.pushButton_8.clicked.connect(lambda: self.ui.pages.setCurrentIndex(7))
-        self.ui.pushButton_8.clicked.connect(lambda: self.load_profile(current_session.user_id))
+        self.ui.pushButton_8.clicked.connect(lambda: self.load_profile(self.current_session.user_id))
+        print(f"Current user_id: {self.current_session.user_id}")
         self.ui.pushButton_7.clicked.connect(lambda: self.ui.pages.setCurrentIndex(8))
         self.ui.admin_logout_3.clicked.connect(lambda: self.ui.pages.setCurrentIndex(6))
         self.ui.pushButton_3.clicked.connect(self.submit_reservation)
@@ -105,9 +112,10 @@ class MainApp(QMainWindow):
         #self.ui.homeButton.setStyleSheet("background-color: #0b4fa7; border:none;")
     def update_greeting(self):
         """Updates the greeting label based on the current session"""
-        if current_session.name:
-            current_session.user_id = current_session.user_id
-            first_name = current_session.name.split()[0]
+        if self.current_session.name:
+            self.current_session.user_id = self.current_session.user_id
+            self.current_session.role = self.current_session.role
+            first_name = self.current_session.name.split()[0]
             self.ui.greet_2.setText(f"Welcome, {first_name}!")
         else:
             self.ui.greet_2.setText("Welcome!")
@@ -153,7 +161,8 @@ class MainApp(QMainWindow):
         """)
         self.refresh_popup.setModal(False)  # Non-blocking
         self.refresh_popup.show()
-
+        if self.current_session.role=="Admin":
+            self.load_notices(self.current_session.role)
         # Automatically close the dialog after 1 second
         QTimer.singleShot(1000, self.refresh_popup.close)
     
@@ -185,17 +194,20 @@ class MainApp(QMainWindow):
         self.ui.date_2.setText(current_date)
         self.ui.time_2.setText(current_time)
             
-    def add_combos(self):
-        # Add items to the resource combo box
-        self.ui.comboBox.addItem("Classroom")
+    # def add_combos(self):
+    #     # Add items to the resource combo box
+    #     self.ui.comboBox.addItem("Classroom")
 
-        # Add items to the time slot combo box
-        self.ui.comboBox_2.addItem("B2-705")
-        self.ui.comboBox_2.addItem("B2-910")
+    #     # Add items to the time slot combo box
+    #     self.ui.comboBox_2.addItem("B2-705")
+    #     self.ui.comboBox_2.addItem("B2-910")
+        
+
         
     def login(self):
         userid = self.ui.lineEdit.text()
         password = self.ui.lineEdit_2.text()
+        password=hashlib.sha256(password.encode()).hexdigest()
         if self.ui.radioButton_2.isChecked():
             role = "Student"
         elif self.ui.radioButton_3.isChecked():
@@ -214,13 +226,13 @@ class MainApp(QMainWindow):
         if result:
             user_id,name,role,flag = result
             #print(user_id,name,role,flag)
-            current_session.user_id = user_id
-            current_session.role = role
-            current_session.flag = flag
-            current_session.name = name
+            self.current_session.user_id = user_id
+            self.current_session.role = role
+            self.current_session.flag = flag
+            self.current_session.name = name
             name = name.split()[0]
             self.update_greeting()
-            
+            self.load_notices(role)
             QMessageBox.information(self, "Success", "Login Successful! \n Welcome "+name+"!")
             if role == "Admin":
                 self.ui.pages.setCurrentIndex(1)
@@ -232,16 +244,19 @@ class MainApp(QMainWindow):
     def load_profile(self,user_id):
         
         """Retrieve the user's profile details from the users table."""
+        print(f"User ID: {user_id}")
         conn,cur = connect_to_db()
-        query = "SELECT picture,full_name,roles,dept,account_flag FROM user WHERE user_id = ?"
+        query = "SELECT Picture,full_name,roles,dept,account_flag FROM user WHERE user_id = ?"
         cur.execute(query, (user_id,))
         result = cur.fetchone()
+        #print(result)
         picture, name, role, dept, flag = result
         self.ui.resevation_heading_6.setText(name)
         self.ui.resevation_heading_10.setText(role)
         self.ui.resevation_heading_11.setText(dept)
         self.ui.resevation_heading_13.setText(str(user_id))
-        image_data = QByteArray(result[0])  # Convert binary data
+        #print(picture)
+        image_data = QByteArray(picture)  # Convert binary data
         pixmap = QPixmap()
         pixmap.loadFromData(image_data)
         self.ui.label_6.setPixmap(pixmap)
@@ -252,7 +267,26 @@ class MainApp(QMainWindow):
             self.ui.resevation_heading_12.setText("No restrictions")
 
         conn.close()
-
+    
+    def logout(self):
+        # Navigate back to the login page (tab index 0)
+        
+        reply = QMessageBox.question(
+            self,
+            "Confirm Logout",
+            "Are you sure you want to log out?",
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.No,
+        )
+        if reply == QMessageBox.Yes:
+            self.current_session.clear()
+            self.ui.pages.setCurrentIndex(0)
+            self.ui.lineEdit.clear()
+            self.ui.lineEdit_2.clear()
+            QMessageBox.information(self, "Logout", "You have successfully logged out.")
+        else:
+            pass
+        
     def closeEvent(self, event):
     
         reply = QMessageBox.question(
@@ -270,6 +304,7 @@ class MainApp(QMainWindow):
                 self.database.close()
 
                 event.accept()
+                self.logout()
                 print("Application closed successfully.")
 
             except Exception as e:
@@ -283,25 +318,7 @@ class MainApp(QMainWindow):
         else:
             # Ignore the close event
             event.ignore()
-    
-    def logout(self):
-        # Navigate back to the login page (tab index 0)
-        
-        reply = QMessageBox.question(
-            self,
-            "Confirm Logout",
-            "Are you sure you want to log out?",
-            QMessageBox.Yes | QMessageBox.No,
-            QMessageBox.No,
-        )
-        if reply == QMessageBox.Yes:
-            self.ui.pages.setCurrentIndex(0)
-            self.ui.lineEdit.clear()
-            self.ui.lineEdit_2.clear()
-            QMessageBox.information(self, "Logout", "You have successfully logged out.")
-        else:
-            pass
-        
+
     def submit_reservation(self):
         # Get the selected values from the combo boxes and the text field
         resource = self.ui.comboBox.currentText()
@@ -318,6 +335,34 @@ class MainApp(QMainWindow):
         if store_reservation(resource, space, date_time, notes):
             QMessageBox.information(self, "Success", "Your reservation request has been submitted successfully.")
 
+    def post_notice(self):
+        audience = ""
+        if self.ui.radioButton_6.isChecked():
+            audience = "Everyone"
+        elif self.ui.radioButton_4.isChecked():
+            audience = "Teacher"
+        elif self.ui.radioButton_5.isChecked():
+            audience = "Student"
+        
+        message = self.ui.textEdit.toPlainText().strip()
+
+        if not message:
+            QMessageBox.warning(self, "Warning", "Message cannot be empty.")
+            return
+
+        add_notice(audience, message)
+        QMessageBox.information(self, "Success", "Notice posted successfully.")
+        self.ui.textEdit.clear()
+        
+    def load_notices(self,role):
+        print(f"Role: {role}")
+        notices = fetch_notices(role)
+        self.ui.tableWidget_3.setRowCount(0)  # Clear the table
+
+        for row_idx, (notice_date, message) in enumerate(notices):
+            self.ui.tableWidget_3.insertRow(row_idx)
+            self.ui.tableWidget_3.setItem(row_idx, 0, QTableWidgetItem(notice_date))
+            self.ui.tableWidget_3.setItem(row_idx, 1, QTableWidgetItem(message))
     
     def on_toggle_state_changed(self, checked):
         # Handle the toggle switch state change
@@ -353,10 +398,11 @@ def dayFromdate(date):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setAttribute(Qt.AA_UseHighDpiPixmaps)
-
+    
     stylesheetDark = load_stylesheet('dark.qss')
     stylesheetLight = load_stylesheet('light.qss')
     main_window = MainApp()
     main_window.show()
     print(dayFromdate("2024,12,19"))
+    
     sys.exit(app.exec_())
