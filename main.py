@@ -190,16 +190,21 @@ class MainApp(QMainWindow):
             elif current_index == 7:  # Example: Profile Page
                 self.load_profile(self.current_session.user_id)
             
-            cur.execute("SELECT account_flag FROM user WHERE user_id = ?", (self.current_session.user_id,))
-            conn.commit()
-            flag = cur.fetchone()[0]
-            self.current_session.flag = flag
-            print(f"Flag: {flag}")
-            if self.current_session.role=="Admin":
-                self.load_notices(self.current_session.role)
-            # Automatically close the dialog after 1 second
-            QTimer.singleShot(1000, self.refresh_popup.close)
-            conn.close()
+            if self.current_session.user_id is not None:
+                cur.execute("SELECT account_flag FROM user WHERE user_id = ?", (self.current_session.user_id,))
+                conn.commit()
+                flag = cur.fetchone()[0]
+                self.current_session.flag = flag
+                print(f"Flag: {flag}")
+                if self.current_session.role=="Admin":
+                    self.load_notices(self.current_session.role)
+                # Automatically close the dialog after 1 second
+                QTimer.singleShot(1000, self.refresh_popup.close)
+                conn.close()
+            else:
+                QTimer.singleShot(1000, self.refresh_popup.close)
+                conn.close()
+                
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Failed to refresh the application: {str(e)}")
             QTimer.singleShot(1000, self.refresh_popup.close)
@@ -775,6 +780,7 @@ class MainApp(QMainWindow):
             else:
                 cur.execute("UPDATE resource_log SET available = 1 WHERE resource_id = ? AND date = ? AND time = ?", (resource_id, date, time))
             conn.commit()
+            notes = f"Resource {resource_id} has been released for {date}, {time}. Notes: {notes}"
             add_notice("Student", notes)
             QMessageBox.information(self, "Success", "Resource released and announced successfully!")
         except Exception as e:
