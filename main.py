@@ -60,7 +60,8 @@ class MainApp(QMainWindow):
         self.update_greeting()
         self.load_notices(self.current_session.role)
         #self.add_combos()
-        
+        self.ui.plainTextEdit.setPlaceholderText("Write a note(Optional)")
+        self.ui.plainTextEdit_2.setPlaceholderText("Notify about cancellation with cause")
         self.ui.actionAbout.triggered.connect(self.show_about)
         self.ui.actionForce_Exit.triggered.connect(self.force_exit)
         self.ui.actionRefresh.triggered.connect(self.refresh_app)
@@ -145,9 +146,9 @@ class MainApp(QMainWindow):
         QApplication.quit()
     
     def refresh_app(self):
-        
+        conn, cur = connect_to_db()
         #self.load_latest_data()
-
+        
         self.refresh_popup = QDialog(self)
         self.refresh_popup.setWindowFlags(Qt.FramelessWindowHint | Qt.Dialog) 
         self.refresh_popup.setFixedSize(80, 80)
@@ -174,11 +175,36 @@ class MainApp(QMainWindow):
         """)
         self.refresh_popup.setModal(False)  # Non-blocking
         self.refresh_popup.show()
-        if self.current_session.role=="Admin":
-            self.load_notices(self.current_session.role)
-        # Automatically close the dialog after 1 second
-        QTimer.singleShot(1000, self.refresh_popup.close)
-    
+        try:
+            current_index = self.ui.pages.currentIndex()  # Get current page index
+            self.ui.pages.setCurrentIndex(current_index)  # Reset to the same index
+            if current_index == 2:  # Example: Reservation Requests Page
+                self.load_reservation_requests()
+            elif current_index == 6:
+                # Example: Notifications Page
+                self.load_notifications()
+            elif current_index == 3:  # Example: Application Logs Page
+                self.load_application_logs()
+            elif current_index == 5:  # Example: Notices Page
+                self.load_notices(self.current_session.role)
+            elif current_index == 7:  # Example: Profile Page
+                self.load_profile(self.current_session.user_id)
+            
+            cur.execute("SELECT account_flag FROM user WHERE user_id = ?", (self.current_session.user_id,))
+            conn.commit()
+            flag = cur.fetchone()[0]
+            self.current_session.flag = flag
+            print(f"Flag: {flag}")
+            if self.current_session.role=="Admin":
+                self.load_notices(self.current_session.role)
+            # Automatically close the dialog after 1 second
+            QTimer.singleShot(1000, self.refresh_popup.close)
+            conn.close()
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to refresh the application: {str(e)}")
+            QTimer.singleShot(1000, self.refresh_popup.close)
+            
+        
     def show_about(self):
         self.about_window = AboutWindow()
         self.about_window.exec_()
@@ -305,7 +331,7 @@ class MainApp(QMainWindow):
             pass
         
     def closeEvent(self, event):
-    
+        conn, cur = connect_to_db()
         reply = QMessageBox.question(
             self,
             "Exit Confirmation",
@@ -316,12 +342,11 @@ class MainApp(QMainWindow):
 
         if reply == QMessageBox.Yes:
             try:
-                self.save_all_data()
-
-                self.database.close()
-
+                conn.commit()
+                conn.close()
                 event.accept()
-                self.logout()
+                if self.current_session.user_id:
+                    self.logout()
                 print("Application closed successfully.")
 
             except Exception as e:
@@ -366,10 +391,10 @@ class MainApp(QMainWindow):
             self.ui.tableWidget_3.setItem(row_idx, 1, QTableWidgetItem(message))
             
     def apply_reservation(self):
-        conn,cur=connect_to_db()
+        conn, cur = connect_to_db()
+
         if self.current_session.flag == 1:
             QMessageBox.warning(self, "Error", "Your account has been restricted for system abuse. Please contact the admin.")
-            self.ui.plainTextEdit.clear()
             self.ui.dateEdit.clear()
             self.ui.timeEdit.clear()
             self.ui.timeEdit_2.clear()
@@ -401,7 +426,7 @@ class MainApp(QMainWindow):
                 if resource == "Classroom":
                     # Extract resource_id from Space combo box
                     space = self.ui.comboBox_2.currentText()  # Example: "B2-203"
-                    resource_id = int(re.sub(r'[^0-9]', '', space))# Convert "B2-203" to 2203
+                    resource_id = int(re.sub(r'[^0-9]', '', space))  # Convert "B2-203" to 2203
 
                     # Extract time from the timeslot combo box
                     time = self.ui.comboBox_3.currentText()
@@ -413,6 +438,9 @@ class MainApp(QMainWindow):
                     """
                     cur.execute(check_query, (resource_id, date, time))
                     result = cur.fetchone()
+
+                    if result is not None and result[0] == 0:
+                        is_available = False
 
                 else:
                     # Query resources table for the selected resource type
@@ -429,50 +457,41 @@ class MainApp(QMainWindow):
                     end_time = self.ui.timeEdit_2.time().toString("h:mm AP")
                     time = f"{start_time}-{end_time}"
 
-                    # Check availability in resource_htp
+                    # Check availability in resource_log
                     check_query = """
-                    SELECT available FROM resource_log 
-                    WHERE resource_id = ? AND date = ? AND 
-                        time = ?
+                    SELECT time FROM resource_log 
+                    WHERE resource_id = ? AND date = ?
                     """
-                    cur.execute(check_query, (resource_id, date, time,))
-                    result = cur.fetchone()
-                # if resource == "Classroom":
-                #     if result!=None:
-                #     # Check the value in the `available` column
-                #         if result[0] == 0:
-                #             is_available = False
-                #         else:
-                #             is_available = True
-                #     else:
-                #         is_available = False
+                    cur.execute(check_query, (resource_id, date))
+                    result = cur.fetchall()
                         
-                # else:
-                #     if result!=None:
-                #     # Check the value in the `available` column
-                #         if result[0] == 0:
-                #             is_available = False
-                #         else:
-                #             is_available = True
-                #     else:
-                #         is_available = True
-                
-                if result is not None:
-                    if result[0] == 0:
-                        is_available = False
-                    else:
-                        is_available = True
-                else:
-                    is_available = True
+                    # Convert user input start and end times to datetime
+                    user_start = datetime.strptime(start_time, "%I:%M %p")
+                    user_end = datetime.strptime(end_time, "%I:%M %p")
+
+                        # Check for overlapping time slots
+                    for res_time in result:
+                            # Extract start and end times from the database "time" column
+                        db_start_time, db_end_time = res_time[0].split('-')
+                        db_start_time = datetime.strptime(db_start_time.strip(), "%I:%M %p")
+                        db_end_time = datetime.strptime(db_end_time.strip(), "%I:%M %p")
+
+                            # Check if the user’s time overlaps with any existing time
+                        if (user_start < db_end_time and user_end > db_start_time):
+                            is_available = False
+                            break
 
                 if not is_available:
                     QMessageBox.warning(self, "Error", "The selected resource is not available for the chosen date and time.")
                     return  # Exit the function if the resource is not available
-                #check if the same entry(same date,time,user_id,resource_id) is already in the database
+
+                # Check if the same entry (same date, time, user_id, resource_id) exists
                 cur.execute("SELECT * FROM bookings WHERE user_id = ? AND date = ? AND time = ? AND resource_id = ?", (user_id, date, time, resource_id))
                 existing_entry = cur.fetchone()
+
                 cur.execute("SELECT COUNT(*) FROM bookings")
                 count = cur.fetchone()[0]
+
                 if not existing_entry:
                     if count == 0:
                         cur.execute('''
@@ -499,6 +518,7 @@ class MainApp(QMainWindow):
                 self.ui.comboBox.setCurrentIndex(0)
                 self.ui.comboBox_2.setCurrentIndex(0)
                 self.ui.comboBox_3.setCurrentIndex(0)
+
             except Exception as e:
                 conn.rollback()
                 QMessageBox.warning(self, "Error", f"Failed to apply reservation: {e}")
@@ -710,7 +730,6 @@ class MainApp(QMainWindow):
             QMessageBox.critical(self, "Error", f"Operation failed: {str(e)}")
             
     def resource_release(self):
-        self.ui.plainTextEdit_2.clear()
         self.ui.dateEdit_2.clear()
         self.ui.timeEdit_3.clear()
         self.ui.timeEdit_4.clear()
