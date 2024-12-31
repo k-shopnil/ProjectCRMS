@@ -54,7 +54,7 @@ class MainApp(QMainWindow):
         self.ui.pages.tabBar().setVisible(False)
         self.ui.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.Password)
         self.ui.lineEdit_2.setPlaceholderText("Enter Password")
-        self.ui.label_3.setText("CRMS V1.3 Beta | Developed By Group 5")
+        self.ui.label_3.setText("CRMS v2.0 Beta | Developed By Group 5")
         
         
         self.update_greeting()
