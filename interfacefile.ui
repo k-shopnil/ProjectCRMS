@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>794</width>
-    <height>579</height>
+    <height>750</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -383,7 +383,7 @@ drop-shadow: 5px 5px blue;
              <x>-20</x>
              <y>390</y>
              <width>850</width>
-             <height>61</height>
+             <height>55</height>
             </rect>
            </property>
            <property name="sizePolicy">
