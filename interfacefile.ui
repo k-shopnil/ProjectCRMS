@@ -174,7 +174,7 @@
     <item>
      <widget class="QTabWidget" name="pages">
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="login_Tab">
        <attribute name="title">
@@ -380,10 +380,10 @@ drop-shadow: 5px 5px blue;
           <widget class="QLabel" name="label_3">
            <property name="geometry">
             <rect>
-             <x>200</x>
-             <y>400</y>
-             <width>400</width>
-             <height>55</height>
+             <x>-20</x>
+             <y>390</y>
+             <width>850</width>
+             <height>61</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -394,23 +394,27 @@ drop-shadow: 5px 5px blue;
            </property>
            <property name="minimumSize">
             <size>
-             <width>400</width>
+             <width>850</width>
              <height>55</height>
             </size>
            </property>
            <property name="font">
             <font>
              <family>Montserrat</family>
-             <pointsize>14</pointsize>
+             <pointsize>12</pointsize>
              <bold>true</bold>
             </font>
            </property>
            <property name="styleSheet">
             <string notr="true">color: rgb(255, 255, 255);
-color: rgba(175, 175, 175, 50);</string>
+color: rgba(175, 175, 175, 50);
+background-color:none;</string>
            </property>
            <property name="text">
             <string>CRMS V2.0 Beta | Developed By Group 5</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
           <widget class="QWidget" name="layoutWidget">
@@ -4216,7 +4220,7 @@ QMenuBar:hover {
   <action name="actionAbout">
    <property name="icon">
     <iconset>
-     <normaloff>../../Downloads/about-filled-svgrepo-com.svg</normaloff>../../Downloads/about-filled-svgrepo-com.svg</iconset>
+     <normaloff>Asset/about-filled-svgrepo-com.svg</normaloff>Asset/about-filled-svgrepo-com.svg</iconset>
    </property>
    <property name="text">
     <string>About</string>
@@ -4238,7 +4242,7 @@ QMenuBar:hover {
   <action name="actionForce_Exit">
    <property name="icon">
     <iconset>
-     <normaloff>../../Downloads/switch-off-on-power-energy-battery-ecology-svgrepo-com.svg</normaloff>../../Downloads/switch-off-on-power-energy-battery-ecology-svgrepo-com.svg</iconset>
+     <normaloff>Asset/switch-off-on-power-energy-battery-ecology-svgrepo-com.svg</normaloff>Asset/switch-off-on-power-energy-battery-ecology-svgrepo-com.svg</iconset>
    </property>
    <property name="text">
     <string>Force Exit</string>
@@ -4258,7 +4262,7 @@ QMenuBar:hover {
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../../Downloads/update-rotation-svgrepo-com.svg</normaloff>../../Downloads/update-rotation-svgrepo-com.svg</iconset>
+     <normaloff>Asset/update-rotation-svgrepo-com.svg</normaloff>Asset/update-rotation-svgrepo-com.svg</iconset>
    </property>
    <property name="text">
     <string>Refresh</string>
