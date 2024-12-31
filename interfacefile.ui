@@ -174,7 +174,7 @@
     <item>
      <widget class="QTabWidget" name="pages">
       <property name="currentIndex">
-       <number>5</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="login_Tab">
        <attribute name="title">
@@ -410,7 +410,7 @@ drop-shadow: 5px 5px blue;
 color: rgba(175, 175, 175, 50);</string>
            </property>
            <property name="text">
-            <string>CRMS V1.3 Beta | Developed By Group 5</string>
+            <string>CRMS V2.0 Beta | Developed By Group 5</string>
            </property>
           </widget>
           <widget class="QWidget" name="layoutWidget">
@@ -978,7 +978,7 @@ border:none;
                 </column>
                 <column>
                  <property name="text">
-                  <string>Status</string>
+                  <string>Approval</string>
                  </property>
                 </column>
                 <column>
@@ -1174,11 +1174,6 @@ border:none;
                 <column>
                  <property name="text">
                   <string>Time</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Notes</string>
                  </property>
                 </column>
                </widget>
@@ -1628,6 +1623,36 @@ border:none;
                 <property name="icon">
                  <iconset>
                   <normaloff>Asset/compose-svgrepo-com.svg</normaloff>Asset/compose-svgrepo-com.svg</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>35</width>
+                  <height>60</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_6">
+                <property name="toolTip">
+                 <string>Resource Release</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(4, 29, 45);;
+border:none;
+}
+QPushButton:hover{
+background-color: rgb(11, 79, 167);
+border:none;
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>Asset/minus-file-svgrepo-com.svg</normaloff>Asset/minus-file-svgrepo-com.svg</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -2089,7 +2114,7 @@ border:none;
                 </column>
                 <column>
                  <property name="text">
-                  <string>Notes</string>
+                  <string>Feedback</string>
                  </property>
                 </column>
                </widget>
@@ -2972,7 +2997,7 @@ border:none;
                   </item>
                   <item>
                    <property name="text">
-                    <string>Playground</string>
+                    <string>Sport Complex</string>
                    </property>
                   </item>
                   <item>
@@ -3026,6 +3051,81 @@ border:none;
                   <property name="placeholderText">
                    <string>Specify your requirement</string>
                   </property>
+                  <item>
+                   <property name="text">
+                    <string>B1 - 203</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>B1 - 302</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>B1 - 404</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>B2 - 317</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>B2 - 416</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>B2 - 517</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>B2 - 617</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>B2 - 709</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>B3 - 509</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>B3 - 609</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>B3 - 712</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>B3 - 812</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>B4 - 404</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>B4 - 506</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>B4 - 604</string>
+                   </property>
+                  </item>
                  </widget>
                 </item>
                </layout>
@@ -3060,6 +3160,9 @@ border:none;
                     <height>50</height>
                    </size>
                   </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
                  </widget>
                 </item>
                </layout>
@@ -3093,6 +3196,9 @@ border:none;
                     <width>85</width>
                     <height>50</height>
                    </size>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
                   </property>
                  </widget>
                 </item>
@@ -3137,6 +3243,46 @@ border:none;
                   <property name="placeholderText">
                    <string>Specify your requirement</string>
                   </property>
+                  <item>
+                   <property name="text">
+                    <string>8:00AM-9:15AM</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>9:15AM-10:30AM</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>10:30AM-11:45AM</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>11:45AM-1:00PM</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>1:30PM-2:45PM</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>2:45PM-4:00PM</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>4:00PM-5:15PM</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>5:15PM-6:30PM</string>
+                   </property>
+                  </item>
                  </widget>
                 </item>
                </layout>
@@ -3275,6 +3421,741 @@ drop-shadow: 5px 5px blue;
              <property name="text">
               <string>Apply</string>
              </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="cancel_class">
+       <attribute name="title">
+        <string>Tab 10</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_49">
+        <item>
+         <widget class="QFrame" name="frame_26">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>500</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_48">
+           <item>
+            <widget class="QFrame" name="frame_27">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>41</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>500</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_40">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_20" stretch="0,0,100,0">
+                <property name="spacing">
+                 <number>9</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QPushButton" name="reservation_BTH_7">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>66</width>
+                    <height>71</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="toolTip">
+                   <string>Go back to home</string>
+                  </property>
+                  <property name="layoutDirection">
+                   <enum>Qt::RightToLeft</enum>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+background-color: rgb(4, 29, 45);
+border-radius:20px;
+border:none;
+}
+QPushButton:hover{
+background-color: rgb(11, 79, 167);
+border-radius:20px;
+border:none;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>Asset/back-svgrepo-com.svg</normaloff>Asset/back-svgrepo-com.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>40</width>
+                    <height>60</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item alignment="Qt::AlignHCenter">
+                 <widget class="QLabel" name="resevation_heading_16">
+                  <property name="font">
+                   <font>
+                    <family>Montserrat</family>
+                    <pointsize>26</pointsize>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                  <property name="text">
+                   <string>Cancel a Schedule</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEdit_4">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>31</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>106</width>
+                    <height>100</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">border-radius:10px;</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                  <property name="placeholderText">
+                   <string>AI Search</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="power_search_2">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>66</width>
+                    <height>71</height>
+                   </size>
+                  </property>
+                  <property name="toolTip">
+                   <string>This feature is coming soon</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+background-color: rgb(4, 29, 45);
+border-radius:20px;
+border:none;
+}
+QPushButton:hover{
+background-color: rgb(11, 79, 167);
+border-radius:20px;
+border:none;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>Asset/search-svgrepo-com.svg</normaloff>Asset/search-svgrepo-com.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>50</width>
+                    <height>27</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_28">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_21">
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_41">
+                   <property name="spacing">
+                    <number>9</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="label_13">
+                     <property name="font">
+                      <font>
+                       <family>Montserrat</family>
+                       <pointsize>12</pointsize>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Resource</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboBox_4">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>125</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Montserrat</family>
+                       <pointsize>8</pointsize>
+                      </font>
+                     </property>
+                     <property name="currentText">
+                      <string>Classroom</string>
+                     </property>
+                     <property name="placeholderText">
+                      <string>Select the Resource</string>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string>Classroom</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Conference Hall</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Sport Complex</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Transportation</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_42">
+                   <property name="spacing">
+                    <number>9</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="label_14">
+                     <property name="font">
+                      <font>
+                       <family>Montserrat</family>
+                       <pointsize>12</pointsize>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Space</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboBox_5">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>125</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Montserrat</family>
+                       <pointsize>8</pointsize>
+                      </font>
+                     </property>
+                     <property name="placeholderText">
+                      <string>Specify the Location</string>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string>B1 - 203</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>B1 - 302</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>B1 - 404</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>B2 - 317</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>B2 - 416</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>B2 - 517</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>B2 - 617</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>B2 - 709</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>B3 - 509</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>B3 - 609</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>B3 - 712</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>B3 - 812</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>B4 - 404</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>B4 - 506</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>B4 - 604</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_43">
+                   <item alignment="Qt::AlignTop">
+                    <widget class="QLabel" name="label_15">
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>19</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Montserrat</family>
+                       <pointsize>12</pointsize>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Start Time</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QTimeEdit" name="timeEdit_3">
+                     <property name="minimumSize">
+                      <size>
+                       <width>85</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_44">
+                   <item>
+                    <widget class="QLabel" name="label_16">
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>19</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Montserrat</family>
+                       <pointsize>12</pointsize>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>End Time</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QTimeEdit" name="timeEdit_4">
+                     <property name="minimumSize">
+                      <size>
+                       <width>85</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_45">
+                   <item>
+                    <widget class="QLabel" name="label_17">
+                     <property name="font">
+                      <font>
+                       <family>Montserrat</family>
+                       <pointsize>12</pointsize>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Time Slot</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboBox_6">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Montserrat</family>
+                       <pointsize>8</pointsize>
+                      </font>
+                     </property>
+                     <property name="placeholderText">
+                      <string>Specify your slot</string>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string>8:00AM-9:15AM</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>9:15AM-10:30AM</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>10:30AM-11:45AM</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>11:45AM-1:00PM</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>1:30PM-2:45PM</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>2:45PM-4:00PM</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>4:00PM-5:15PM</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>5:15PM-6:30PM</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_46" stretch="0,0">
+                   <property name="spacing">
+                    <number>6</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="label_18">
+                     <property name="font">
+                      <font>
+                       <family>Montserrat</family>
+                       <pointsize>12</pointsize>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Date</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDateEdit" name="dateEdit_2">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>53</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Montserrat</family>
+                       <pointsize>12</pointsize>
+                      </font>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="displayFormat">
+                      <string>d/M/yyyy</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_29">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>200</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_47">
+                 <item>
+                  <widget class="QPlainTextEdit" name="plainTextEdit_2">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>267</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>500</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="plainText">
+                    <string/>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Reason for Cancellation(Optional)</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item alignment="Qt::AlignHCenter">
+               <widget class="QPushButton" name="pushButton_5">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>500</width>
+                  <height>42</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>1000</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Montserrat</family>
+                  <pointsize>16</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+color: rgb(255, 255, 255);
+background-color: rgb(4, 29, 45);
+border-radius:10px;
+
+}
+
+QPushButton:hover{
+color: rgb(255, 255, 255);
+background-color: rgb(0, 85, 255);
+border-radius:10px;
+drop-shadow: 5px 5px blue;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Apply</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>

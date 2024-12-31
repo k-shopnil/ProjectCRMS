@@ -74,3 +74,7 @@ def fetch_notices(role):
     print(f"notices: {notices}")
     conn.close()
     return notices
+#Pragmas to disable foreign key constraints
+# -- PRAGMA foreign_keys = OFF;
+# -- DELETE FROM bookings WHERE booking_id = 1;
+# -- PRAGMA foreign_keys = ON;
