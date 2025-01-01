@@ -174,7 +174,7 @@
     <item>
      <widget class="QTabWidget" name="pages">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="login_Tab">
        <attribute name="title">
@@ -358,9 +358,15 @@ drop-shadow: 5px 5px blue;
             <rect>
              <x>495</x>
              <y>220</y>
-             <width>111</width>
+             <width>121</width>
              <height>20</height>
             </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
            </property>
            <property name="font">
             <font>
