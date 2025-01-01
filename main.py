@@ -503,11 +503,13 @@ class MainApp(QMainWindow):
                         INSERT INTO bookings (booking_id, user_id, notes, date, application_time, time, resource_id)
                         VALUES (?, ?, ?, ?, ?, ?, ?)
                         ''', (1, user_id, notes, date, application_time, time, resource_id))
+                        conn.commit()
                     else:
                         cur.execute('''
                         INSERT INTO bookings (user_id, notes, date, application_time, time, resource_id)
                         VALUES (?, ?, ?, ?, ?, ?)
                         ''', (user_id, notes, date, application_time, time, resource_id))
+                        conn.commit()
                 else:
                     QMessageBox.warning(self, "Error", "You have already applied for this reservation.")
                     return
@@ -538,9 +540,10 @@ class MainApp(QMainWindow):
 
             # Query to fetch reservation requests
             query = """
-                SELECT b.application_time, b.user_id, b.resource_id, b.date, b.time, b.notes, u.full_name, u.roles, b.booking_id
-                FROM bookings b
-                INNER JOIN user u ON b.user_id = u.user_id
+            SELECT b.application_time, b.user_id, b.resource_id, b.date, b.time, b.notes, u.full_name, u.roles, b.booking_id
+            FROM bookings b
+            INNER JOIN user u ON b.user_id = u.user_id
+            WHERE b.booking_id NOT IN (SELECT booking_id FROM booking_report)
             """
             cur.execute(query)
             rows = cur.fetchall()
@@ -647,8 +650,8 @@ class MainApp(QMainWindow):
                     (user_id, resource_id, booking_id, feedback_message.strip())
                 )
                 conn.commit()
-                cur.execute("DELETE FROM bookings WHERE booking_id = ?", (booking_id,))
-                conn.commit()
+                # cur.execute("DELETE FROM bookings WHERE booking_id = ?", (booking_id,))
+                # conn.commit()
             
             # Remove the row from the table widget
                 table = self.ui.tableWidget
@@ -704,8 +707,8 @@ class MainApp(QMainWindow):
                 conn.commit()
                 cur.execute("INSERT INTO resource_log (resource_id, date, time, available) VALUES (?, ?, ?, ?)", (resource_id, date, time, 0))
                 conn.commit()
-                cur.execute("DELETE FROM bookings WHERE booking_id = ?", (booking_id,))
-                conn.commit()
+                # cur.execute("DELETE FROM bookings WHERE booking_id = ?", (booking_id,))
+                #conn.commit()
             
             # Remove the row from the table widget
                 table = self.ui.tableWidget
@@ -735,12 +738,12 @@ class MainApp(QMainWindow):
             QMessageBox.critical(self, "Error", f"Operation failed: {str(e)}")
             
     def resource_release(self):
-        self.ui.dateEdit_2.clear()
-        self.ui.timeEdit_3.clear()
-        self.ui.timeEdit_4.clear()
-        self.ui.comboBox_4.setCurrentIndex(0)
-        self.ui.comboBox_5.setCurrentIndex(0)
-        self.ui.comboBox_6.setCurrentIndex(0)
+        # self.ui.dateEdit_2.clear()
+        # self.ui.timeEdit_3.clear()
+        # self.ui.timeEdit_4.clear()
+        # self.ui.comboBox_4.setCurrentIndex(0)
+        # self.ui.comboBox_5.setCurrentIndex(0)
+        # self.ui.comboBox_6.setCurrentIndex(0)
         conn, cur = connect_to_db()
         notes = self.ui.plainTextEdit_2.toPlainText()
         date = self.ui.dateEdit_2.date().toString("yyyy-MM-dd")
