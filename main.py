@@ -864,7 +864,6 @@ class MainApp(QMainWindow):
         conn, cur = connect_to_db()
         try:
             cur.execute("UPDATE resource_log SET available = 1 WHERE resource_id = ? AND date = ? AND time = ?", (resource, date, time))
-            conn.commit()
             cur.execute("UPDATE booking_report SET status = 'Declined' WHERE booking_id = ?", (booking_id,))
             conn.commit()
             QMessageBox.information(self, "Success", "Booking revoked successfully.")
